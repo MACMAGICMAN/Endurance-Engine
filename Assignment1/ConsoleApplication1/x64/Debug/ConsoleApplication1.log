@@ -1,0 +1,19 @@
+﻿  Actor.cpp
+  AI.cpp
+  Animation.cpp
+  BackgroundMusic.cpp
+  Camera.cpp
+  Collection.cpp
+  ExampleScene.cpp
+  Input.cpp
+  Menu.cpp
+  Physics.cpp
+  Render.cpp
+  SoundEffects.cpp
+  Sprite.cpp
+  Textbox.cpp
+  Transform.cpp
+  UserInterface.cpp
+  WorldBuilder.cpp
+  Generating Code...
+  ConsoleApplication1.vcxproj -> C:\Users\nicch\Documents\GitHub\Endurance-Engine\Assignment1\x64\Debug\Assignment1.exe
