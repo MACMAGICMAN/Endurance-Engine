@@ -13,4 +13,5 @@ InputInterface::InputInterface()
 
 InputInterface::~InputInterface()
 {
+
 }

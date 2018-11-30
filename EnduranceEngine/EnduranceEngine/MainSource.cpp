@@ -145,7 +145,7 @@ int CALLBACK WinMain(_In_ HINSTANCE hInstance,
 		szTitle,
 		WS_OVERLAPPEDWINDOW,
 		CW_USEDEFAULT, CW_USEDEFAULT,
-		500, 100,
+		1024, 768,
 		NULL,
 		NULL,
 		hInstance,
@@ -169,6 +169,7 @@ int CALLBACK WinMain(_In_ HINSTANCE hInstance,
 	{
 		TranslateMessage(&msg);
 		DispatchMessage(&msg);
+		RedrawWindow(hWnd, NULL, NULL, RDW_INVALIDATE);
 	}
 
 	return (int)msg.wParam;
@@ -180,13 +181,15 @@ int CALLBACK WinMain(_In_ HINSTANCE hInstance,
 
 	return 0;
 
-
 }
 
+const int Size = 200;
+TCHAR greeting[Size] = _T("");
 LRESULT CALLBACK WndProc(_In_ HWND hWnd, _In_ UINT uMsg, _In_ WPARAM wParam, _In_ LPARAM lParam) {
 	PAINTSTRUCT ps;
 	HDC hdc;
-	TCHAR greeting[] = _T("Hello, World!");
+	//TCHAR greeting[] = _T("Hello, World!");
+	LPSTR tempString = new char[1];
 
 	switch (uMsg)
 	{
@@ -196,13 +199,26 @@ LRESULT CALLBACK WndProc(_In_ HWND hWnd, _In_ UINT uMsg, _In_ WPARAM wParam, _In
 		// Here your application is laid out.  
 		// For this introduction, we just print out "Hello, World!"  
 		// in the top left corner.  
-		TextOut(hdc,
-			5, 5,
-			greeting, _tcslen(greeting));
+		TextOut(hdc, 5, 5, greeting, _tcslen(greeting));
 		// End application-specific layout section.  
 
 		EndPaint(hWnd, &ps);
 		break;
+	case WM_KEYDOWN:
+		GetKeyNameText(lParam, tempString, 2);
+		_tcscat_s(greeting, Size, TEXT(tempString));
+		_tcscat_s(greeting, Size, TEXT(" "));
+		break;
+	case WM_LBUTTONDOWN:
+		_tcscat_s(greeting, Size, TEXT("LEFT MOUSE BUTTON "));
+		break;
+	case WM_RBUTTONDOWN:
+		_tcscat_s(greeting, Size, TEXT("RIGHT MOUSE BUTTON "));
+		break;
+	case WM_MBUTTONDOWN:
+		_tcscat_s(greeting, Size, TEXT("MIDDLE MOUSE BUTTON "));
+		break;
+
 	case WM_DESTROY:
 		PostQuitMessage(0);
 		break;
