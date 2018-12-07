@@ -11,10 +11,15 @@
 #include <windows.h>
 #include <tchar.h>
 
+#include "InputInterface.h"
+#include "EventHandler.h"
 
 using namespace std;
 using namespace DirectX;
 using namespace DirectX::PackedVector;
+
+InputInterface inputInterface = InputInterface();
+EventHandler eventHandler = EventHandler();
 
 bool CheckInstance()
 {
@@ -188,23 +193,20 @@ TCHAR greeting[Size] = _T("");
 LRESULT CALLBACK WndProc(_In_ HWND hWnd, _In_ UINT uMsg, _In_ WPARAM wParam, _In_ LPARAM lParam) {
 	PAINTSTRUCT ps;
 	HDC hdc;
-	//TCHAR greeting[] = _T("Hello, World!");
 	LPSTR tempString = new char[1];
+
+	inputInterface.GetInput(uMsg, eventHandler, lParam);
 
 	switch (uMsg)
 	{
 	case WM_PAINT:
 		hdc = BeginPaint(hWnd, &ps);
-
-		// Here your application is laid out.  
-		// For this introduction, we just print out "Hello, World!"  
-		// in the top left corner.  
 		TextOut(hdc, 5, 5, greeting, _tcslen(greeting));
-		// End application-specific layout section.  
-
 		EndPaint(hWnd, &ps);
 		break;
-	case WM_KEYDOWN:
+
+	///LAB 5 SUBMISSION
+	/*case WM_KEYDOWN:
 		GetKeyNameText(lParam, tempString, 2);
 		_tcscat_s(greeting, Size, TEXT(tempString));
 		_tcscat_s(greeting, Size, TEXT(" "));
@@ -217,7 +219,8 @@ LRESULT CALLBACK WndProc(_In_ HWND hWnd, _In_ UINT uMsg, _In_ WPARAM wParam, _In
 		break;
 	case WM_MBUTTONDOWN:
 		_tcscat_s(greeting, Size, TEXT("MIDDLE MOUSE BUTTON "));
-		break;
+		break;*/
+	///LAB 5 SUBMISSION
 
 	case WM_DESTROY:
 		PostQuitMessage(0);

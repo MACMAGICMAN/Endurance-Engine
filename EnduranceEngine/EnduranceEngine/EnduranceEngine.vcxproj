@@ -118,10 +118,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="EventHandler.cpp" />
     <ClCompile Include="InputInterface.cpp" />
     <ClCompile Include="MainSource.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="EventHandler.h" />
     <ClInclude Include="InputInterface.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

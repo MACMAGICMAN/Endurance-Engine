@@ -1,6 +1,5 @@
 ﻿  MainSource.cpp
-c:\users\nicch\documents\github\endurance-engine\enduranceengine\enduranceengine\mainsource.cpp(124): warning C4302: 'type cast': truncation from 'LPSTR' to 'WORD'
 c:\users\nicch\documents\github\endurance-engine\enduranceengine\enduranceengine\mainsource.cpp(129): warning C4302: 'type cast': truncation from 'LPSTR' to 'WORD'
-c:\users\nicch\documents\github\endurance-engine\enduranceengine\enduranceengine\mainsource.cpp(202): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-c:\users\nicch\documents\github\endurance-engine\enduranceengine\enduranceengine\mainsource.cpp(208): warning C4244: 'argument': conversion from 'LPARAM' to 'LONG', possible loss of data
+c:\users\nicch\documents\github\endurance-engine\enduranceengine\enduranceengine\mainsource.cpp(134): warning C4302: 'type cast': truncation from 'LPSTR' to 'WORD'
+c:\users\nicch\documents\github\endurance-engine\enduranceengine\enduranceengine\mainsource.cpp(204): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   EnduranceEngine.vcxproj -> C:\Users\nicch\Documents\GitHub\Endurance-Engine\EnduranceEngine\x64\Debug\EnduranceEngine.exe
