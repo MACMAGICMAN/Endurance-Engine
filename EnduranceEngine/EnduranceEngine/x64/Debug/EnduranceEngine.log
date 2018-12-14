@@ -1,5 +1,18 @@
-﻿  MainSource.cpp
-c:\users\nicch\documents\github\endurance-engine\enduranceengine\enduranceengine\mainsource.cpp(129): warning C4302: 'type cast': truncation from 'LPSTR' to 'WORD'
-c:\users\nicch\documents\github\endurance-engine\enduranceengine\enduranceengine\mainsource.cpp(134): warning C4302: 'type cast': truncation from 'LPSTR' to 'WORD'
-c:\users\nicch\documents\github\endurance-engine\enduranceengine\enduranceengine\mainsource.cpp(204): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-  EnduranceEngine.vcxproj -> C:\Users\nicch\Documents\GitHub\Endurance-Engine\EnduranceEngine\x64\Debug\EnduranceEngine.exe
+﻿  Actor.cpp
+  AI.cpp
+  BackgroundMusic.cpp
+  Camera.cpp
+  Collection.cpp
+  Menu.cpp
+  Physics.cpp
+  PlayerInput.cpp
+  Render.cpp
+  SoundEffects.cpp
+  Sprite.cpp
+  stdafx.cpp
+  Textbox.cpp
+  Transform.cpp
+  UserInterface.cpp
+  WorldBuilder.cpp
+  Generating Code...
+  EnduranceEngine.vcxproj -> C:\Users\Graphic\Downloads\Endurance-Engine-master\Endurance-Engine-master\EnduranceEngine\x64\Debug\EnduranceEngine.exe
