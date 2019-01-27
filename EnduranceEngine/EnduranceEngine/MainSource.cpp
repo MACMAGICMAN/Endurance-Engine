@@ -13,6 +13,7 @@
 
 #include "InputInterface.h"
 #include "EventHandler.h"
+#include "EnduranceEngine.h"
 
 using namespace std;
 using namespace DirectX;
@@ -20,93 +21,8 @@ using namespace DirectX::PackedVector;
 
 InputInterface inputInterface = InputInterface();
 EventHandler eventHandler = EventHandler();
+EnduranceEngine enduranceEngine = EnduranceEngine();
 
-bool CheckInstance()
-{
-
-	CreateMutex(NULL, TRUE, "MyMutex");
-	if (GetLastError() == ERROR_ALREADY_EXISTS)
-	{
-
-		cout << "An instance is already running!" << endl;
-		system("pause");
-		return false;
-
-
-	}
-
-	cout << "No other instances are running." << endl;
-	return true;
-}
-
-bool CheckStorage(const DWORDLONG diskSpaceNeeded)
-{
-	int const drive = _getdrive();
-	struct _diskfree_t diskfree;
-
-	_getdiskfree(drive, &diskfree);
-
-	unsigned __int64 const neededClusters = diskSpaceNeeded / (diskfree.sectors_per_cluster*diskfree.bytes_per_sector);
-
-	if (diskfree.avail_clusters < neededClusters)
-	{
-		cout << "You don't have enough disk space!" << endl;
-		system("pause");
-		return false;
-
-	}
-	cout << "You have enough space." << endl;
-	return true;
-}
-
-bool CheckMemory(const DWORDLONG physicalRAMNeeded, const DWORDLONG virtualRAMNeeded) {
-	MEMORYSTATUSEX status;
-	status.dwLength = sizeof(status);
-	GlobalMemoryStatusEx(&status);
-	if (status.ullTotalPhys < physicalRAMNeeded) {
-
-		cout << ("CheckMemory Failure: Not enough physical memory.");
-		return false;
-	}
-
-	if (status.ullAvailVirtual < virtualRAMNeeded) {
-
-		cout << ("CheckMemory Failure: Not enough virtual memory.");
-		return false;
-	}
-	char *buff = new char[virtualRAMNeeded];
-	if (buff)
-		delete[] buff;
-
-	cout << "Ram is available." << endl;
-	cout << "You have this much RAM: " << status.ullTotalPhys << endl;
-	cout << "You have this much vRAM: " << status.ullAvailVirtual << endl;
-	return true;
-}
-
-DWORD ReadCPUSpeed() {
-	DWORD BufSize = sizeof(DWORD);
-	DWORD dwMHz;
-	DWORD type = REG_DWORD;
-	HKEY hKey;
-	long lError = RegOpenKeyEx(HKEY_LOCAL_MACHINE,
-		"HARDWARE\\DESCRIPTION\\System\\CentralProcessor\\0",
-		0,
-		KEY_READ,
-		&hKey);
-	if (lError == ERROR_SUCCESS) {
-		RegQueryValueEx(hKey,
-			"MHz",
-			NULL,
-			&type,
-			(LPBYTE)&dwMHz,
-			&BufSize);
-
-	}
-	cout << "CPU in Hertz: " << dwMHz << endl;
-	system("pause");
-	return dwMHz;
-}
 
 static TCHAR szWindowClass[] = _T("win32app");
 static TCHAR szTitle[] = _T("Win32 Guided Tour Application");
@@ -118,9 +34,12 @@ int CALLBACK WinMain(_In_ HINSTANCE hInstance,
 	_In_ LPSTR lpCmdLine,
 	_In_ int nCmdShow) {
 
-	WNDCLASSEX wcex;
+	//WNDCLASSEX wcex;
 
-	wcex.cbSize = sizeof(WNDCLASSEX);
+	enduranceEngine.Initialize();
+	enduranceEngine.Start(hInstance, hPrevInstance, lpCmdLine, nCmdShow);
+
+	/*wcex.cbSize = sizeof(WNDCLASSEX);
 	wcex.style = CS_HREDRAW | CS_VREDRAW;
 	wcex.lpfnWndProc = WndProc;
 	wcex.cbClsExtra = 0;
@@ -177,12 +96,9 @@ int CALLBACK WinMain(_In_ HINSTANCE hInstance,
 		RedrawWindow(hWnd, NULL, NULL, RDW_INVALIDATE);
 	}
 
-	return (int)msg.wParam;
+	return (int)msg.wParam;*/
 
-	/*CheckInstance();
-	CheckStorage(300 * 1024 * 1024);
-	CheckMemory(69, 420);
-	ReadCPUSpeed();*/
+	
 
 	return 0;
 
