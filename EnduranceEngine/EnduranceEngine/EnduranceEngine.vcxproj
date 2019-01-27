@@ -124,7 +124,9 @@
     <ClCompile Include="BackgroundMusic.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Collection.cpp" />
+    <ClCompile Include="EnduranceEngine.cpp" />
     <ClCompile Include="EventHandler.cpp" />
+    <ClCompile Include="Initialize.cpp" />
     <ClCompile Include="InputInterface.cpp" />
     <ClCompile Include="MainSource.cpp" />
     <ClCompile Include="Menu.cpp" />
@@ -146,8 +148,10 @@
     <ClInclude Include="BackgroundMusic.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Collection.h" />
+    <ClInclude Include="EnduranceEngine.h" />
     <ClInclude Include="EventHandler.h" />
     <ClInclude Include="ExampleScene.h" />
+    <ClInclude Include="Initialize.h" />
     <ClInclude Include="InputInterface.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Physics.h" />

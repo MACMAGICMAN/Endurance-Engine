@@ -12,10 +12,14 @@
 #include <tchar.h>
 
 #include "Initialize.h"
+#include "InputInterface.h"
+#include "EventHandler.h"
 
 using namespace std;
 using namespace DirectX;
-using namespace DirectX::PackedVector;
+
+//InputInterface inputInterface = InputInterface();
+//EventHandler eventHandler = EventHandler();
 
 Initialize::Initialize()
 {
@@ -27,24 +31,19 @@ Initialize::~Initialize()
 
 }
 
-static TCHAR szWindowClass[] = _T("win32app");
+/*static TCHAR szWindowClass[] = _T("win32app");
 static TCHAR szTitle[] = _T("Win32 Guided Tour Application");
 HINSTANCE hInst;
 
-
 bool Initialize::CheckInstance()
 {
-
 	CreateMutex(NULL, TRUE, "MyMutex");
 	if (GetLastError() == ERROR_ALREADY_EXISTS)
 	{
-
 		cout << "An instance is already running!" << endl;
 		system("pause");
 		exit(0);
 		return false;
-
-
 	}
 
 	cout << "No other instances are running." << endl;
@@ -143,7 +142,7 @@ LRESULT CALLBACK WndProc(_In_ HWND hWnd, _In_ UINT uMsg, _In_ WPARAM wParam, _In
 		break;
 
 		///LAB 5 SUBMISSION
-		/*case WM_KEYDOWN:
+		case WM_KEYDOWN:
 			GetKeyNameText(lParam, tempString, 2);
 			_tcscat_s(greeting, Size, TEXT(tempString));
 			_tcscat_s(greeting, Size, TEXT(" "));
@@ -156,7 +155,7 @@ LRESULT CALLBACK WndProc(_In_ HWND hWnd, _In_ UINT uMsg, _In_ WPARAM wParam, _In
 			break;
 		case WM_MBUTTONDOWN:
 			_tcscat_s(greeting, Size, TEXT("MIDDLE MOUSE BUTTON "));
-			break;*/
+			break;
 			///LAB 5 SUBMISSION
 
 	case WM_DESTROY:
@@ -240,4 +239,4 @@ int Initialize::StartUp(_In_ HINSTANCE hInstance,
 
 	return (int)msg.wParam;
 }
-
+*/

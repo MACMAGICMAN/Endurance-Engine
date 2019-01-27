@@ -17,7 +17,6 @@
 
 using namespace std;
 using namespace DirectX;
-using namespace DirectX::PackedVector;
 
 InputInterface inputInterface = InputInterface();
 EventHandler eventHandler = EventHandler();
@@ -33,17 +32,13 @@ EnduranceEngine::~EnduranceEngine()
 
 bool CheckInstance()
 {
-
 	CreateMutex(NULL, TRUE, "MyMutex");
 	if (GetLastError() == ERROR_ALREADY_EXISTS)
 	{
-
 		cout << "An instance is already running!" << endl;
 		system("pause");
 		exit(0);
 		return false;
-
-
 	}
 
 	cout << "No other instances are running." << endl;

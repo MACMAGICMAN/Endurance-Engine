@@ -1,18 +1,1 @@
-﻿  Actor.cpp
-  AI.cpp
-  BackgroundMusic.cpp
-  Camera.cpp
-  Collection.cpp
-  Menu.cpp
-  Physics.cpp
-  PlayerInput.cpp
-  Render.cpp
-  SoundEffects.cpp
-  Sprite.cpp
-  stdafx.cpp
-  Textbox.cpp
-  Transform.cpp
-  UserInterface.cpp
-  WorldBuilder.cpp
-  Generating Code...
-  EnduranceEngine.vcxproj -> C:\Users\Graphic\Downloads\Endurance-Engine-master\Endurance-Engine-master\EnduranceEngine\x64\Debug\EnduranceEngine.exe
+﻿  EnduranceEngine.vcxproj -> C:\Users\nicch\Documents\GitHub\Endurance-Engine\EnduranceEngine\x64\Debug\EnduranceEngine.exe
