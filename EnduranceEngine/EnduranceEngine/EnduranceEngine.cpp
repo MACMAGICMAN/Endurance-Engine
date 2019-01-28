@@ -1,4 +1,6 @@
-#include <windows.h> 
+#include <SFML\Graphics.hpp>
+
+#include <windows.h>
 #include <DirectXMath.h>
 #include <DirectXPackedVector.h>
 #include <iostream>
@@ -17,6 +19,7 @@
 
 using namespace std;
 using namespace DirectX;
+using namespace sf;
 
 InputInterface inputInterface = InputInterface();
 EventHandler eventHandler = EventHandler();
@@ -132,12 +135,28 @@ static TCHAR szTitle[] = _T("Win32 Guided Tour Application");
 HINSTANCE hInst;
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 
-int EnduranceEngine::Start(_In_ HINSTANCE hInstance,
-	_In_ HINSTANCE hPrevInstance,
-	_In_ LPSTR lpCmdLine,
-	_In_ int nCmdShow)
+int EnduranceEngine::Start(/*_In_ HINSTANCE hInstance, _In_ HINSTANCE hPrevInstance, _In_ LPSTR lpCmdLine, _In_ int nCmdShow*/)
 {
-	WNDCLASSEX wcex;
+	RenderWindow window(VideoMode(500, 500), "SFML works! ~");
+	CircleShape shape(250.f);
+	shape.setFillColor(Color(0, 255, 0));
+
+	while (window.isOpen()) {
+		Event event;
+		while (window.pollEvent(event)) {
+			if (event.type == Event::Closed) {
+				window.close();
+			}
+		}
+
+		window.clear();
+		window.draw(shape);
+		window.display();
+	}
+
+	return 0;
+
+	/*WNDCLASSEX wcex;
 	wcex.cbSize = sizeof(WNDCLASSEX);
 	wcex.style = CS_HREDRAW | CS_VREDRAW;
 	wcex.lpfnWndProc = WndProc;
@@ -195,10 +214,10 @@ int EnduranceEngine::Start(_In_ HINSTANCE hInstance,
 		RedrawWindow(hWnd, NULL, NULL, RDW_INVALIDATE);
 	}
 
-	return (int)msg.wParam;
+	return (int)msg.wParam;*/
 }
 
-const int Size = 200;
+/*const int Size = 200;
 TCHAR greeting[Size] = _T("");
 LRESULT CALLBACK WndProc(_In_ HWND hWnd, _In_ UINT uMsg, _In_ WPARAM wParam, _In_ LPARAM lParam) {
 	PAINTSTRUCT ps;
@@ -229,7 +248,7 @@ LRESULT CALLBACK WndProc(_In_ HWND hWnd, _In_ UINT uMsg, _In_ WPARAM wParam, _In
 			break;
 		case WM_MBUTTONDOWN:
 			_tcscat_s(greeting, Size, TEXT("MIDDLE MOUSE BUTTON "));
-			break;*/
+			break;
 			///LAB 5 SUBMISSION
 
 	case WM_DESTROY:
@@ -241,4 +260,4 @@ LRESULT CALLBACK WndProc(_In_ HWND hWnd, _In_ UINT uMsg, _In_ WPARAM wParam, _In
 	}
 
 	return 0;
-}
+}*/
