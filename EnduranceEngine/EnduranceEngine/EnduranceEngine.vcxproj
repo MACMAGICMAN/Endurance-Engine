@@ -150,6 +150,7 @@
     <ClCompile Include="PlayerInput.cpp" />
     <ClCompile Include="Render.cpp" />
     <ClCompile Include="SoundEffects.cpp" />
+    <ClCompile Include="SplashScreen.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="Textbox.cpp" />
@@ -174,6 +175,7 @@
     <ClInclude Include="PlayerInput.h" />
     <ClInclude Include="Render.h" />
     <ClInclude Include="SoundEffects.h" />
+    <ClInclude Include="SplashScreen.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetever.h" />
