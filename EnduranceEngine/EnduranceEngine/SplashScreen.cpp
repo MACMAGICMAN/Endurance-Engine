@@ -10,22 +10,25 @@ SplashScreen::~SplashScreen()
 
 }
 
-void SplashScreen::Update()
+void SplashScreen::Update(Time dt)
 {
-	RenderWindow window(VideoMode(750, 750), "Splash screen test");
-	
-	Texture t;
-	t.loadFromFile("../Documents/Import/logo.jpg");
-
-	Sprite logo;
-	logo.setTexture(t);
-
-	//Font f;
-	//f.loadFromFile("..Documents/Import/blue highway.ttf");
-
 	Clock c;
-	Time deltaTime = c.getElapsedTime();
-	float seconds = deltaTime.asSeconds();
+	
+	Texture t_logo;
+	t_logo.loadFromFile("../Documents/Import/logo.jpg");
+
+	Sprite s_logo;
+	s_logo.setTexture(t_logo);
+	
+	RenderWindow window(VideoMode(t_logo.getSize().x, t_logo.getSize().y), "Splash screen test"/*, Style::None*/);
+
+	Font bluehighway;
+	bluehighway.loadFromFile("../Documents/Import/blue highway.ttf");
+
+	Text text;
+	text.setFont(bluehighway);
+	text.setFillColor(Color::Red);
+	text.setCharacterSize(32);
 
 	while (window.isOpen()) {
 		Event event;
@@ -36,7 +39,23 @@ void SplashScreen::Update()
 		}
 
 		window.clear();
-		window.draw(logo);
+		window.draw(s_logo);
+
+		c.restart();
+		dt += c.getElapsedTime();
+		float seconds = dt.asSeconds();
+
+		ostringstream oss;
+		oss << seconds * 1000;
+		string s(oss.str());
+
+		text.setString(s);
+		window.draw(text);
+
+		if (seconds * 1000 >= 2) {
+			window.close();
+		}
+
 		window.display();
 	}
 }

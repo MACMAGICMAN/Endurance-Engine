@@ -1,4 +1,5 @@
 #include <SFML\Graphics.hpp>
+#include <SFML\Audio.hpp>
 
 #include <windows.h>
 #include <DirectXMath.h>
@@ -135,6 +136,18 @@ LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 
 int EnduranceEngine::Start()
 {
-	splashScreen.Update();
+	Time dt;
+	splashScreen.Update(dt);
+
+	//not finished; sound is still mute
+	SoundBuffer buffer;
+	if (!buffer.loadFromFile("opening_Audio.wav")) {
+		return -1;
+	}
+
+	Sound sound;
+	sound.setBuffer(buffer);
+	sound.play();
+
 	return 0;
 }
