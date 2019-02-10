@@ -15,6 +15,32 @@ void SceneGraph::AddChild(SceneGraph* s)
 	s->parent = this;
 }
 
+void SceneGraph::SetParent(SceneGraph& p)
+{
+	parent = &p;
+}
+
+void SceneGraph::MoveObject(SceneGraph *s, float x, float y)
+{
+	Transform q = s->GetTransform;
+	q.translate(x, y);
+	s->setTransform(q);
+}
+
+void SceneGraph::ScaleObject(SceneGraph* s, float x, float y)
+{
+	Transform q = s->GetTransform;
+	q.scale(x, y);
+	s->setScale(q);
+}
+
+void SceneGraph::RotateObject(SceneGraph* s, float x)
+{
+	Transform q = s->GetTransform;
+	q.rotate(x);
+	s->setRotation(q);
+}
+
 void SceneGraph::Update(float msec)
 {
 	if (parent)
