@@ -81,7 +81,7 @@
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>..\SFML-2.5.1\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-system-s-d.lib;sfml-window-s-d.lib;sfml-graphics-s-d.lib;sfml-audio-s-d.lib;sfml-network-s-d.lib;Opengl32.Lib;freetype.lib;WinMM.Lib;openal32.lib;flac.lib;vorbisenc.lib;vorbis.lib;ogg.lib;WS2_32.Lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>sfml-system-s-d.lib;sfml-window-s-d.lib;sfml-graphics-s-d.lib;sfml-audio-s-d.lib;sfml-network-s-d.lib;Opengl32.Lib;freetype.lib;WinMM.Lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;WS2_32.Lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -95,7 +95,7 @@
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
-      <AdditionalDependencies>sfml-system-s-d.lib;sfml-window-s-d.lib;sfml-graphics-s-d.lib;sfml-audio-s-d.lib;sfml-network-s-d.lib;Opengl32.Lib;freetype.lib;WinMM.Lib;openal32.lib;flac.lib;vorbisenc.lib;vorbis.lib;ogg.lib;WS2_32.Lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>sfml-system-s-d.lib;sfml-window-s-d.lib;sfml-graphics-s-d.lib;sfml-audio-s-d.lib;sfml-network-s-d.lib;Opengl32.Lib;freetype.lib;WinMM.Lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;WS2_32.Lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\SFML-2.5.1\lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -113,7 +113,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>..\SFML-2.5.1\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-system-s.lib;sfml-window-s.lib;sfml-graphics-s.lib;sfml-audio-s.lib;sfml-network-s.lib;Opengl32.Lib;freetype.lib;WinMM.Lib;openal32.lib;flac.lib;vorbisenc.lib;vorbis.lib;ogg.lib;WS2_32.Lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>sfml-system-s.lib;sfml-window-s.lib;sfml-graphics-s.lib;sfml-audio-s.lib;sfml-network-s.lib;Opengl32.Lib;freetype.lib;WinMM.Lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;WS2_32.Lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -129,7 +129,7 @@
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>sfml-system-s.lib;sfml-window-s.lib;sfml-graphics-s.lib;sfml-audio-s.lib;sfml-network-s.lib;Opengl32.Lib;freetype.lib;WinMM.Lib;openal32.lib;flac.lib;vorbisenc.lib;vorbis.lib;ogg.lib;WS2_32.Lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>sfml-system-s.lib;sfml-window-s.lib;sfml-graphics-s.lib;sfml-audio-s.lib;sfml-network-s.lib;Opengl32.Lib;freetype.lib;WinMM.Lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;WS2_32.Lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\SFML-2.5.1\lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -137,6 +137,7 @@
     <ClCompile Include="Actor.cpp" />
     <ClCompile Include="AI.cpp" />
     <ClCompile Include="Animation.cpp" />
+    <ClCompile Include="AudioManager.cpp" />
     <ClCompile Include="BackgroundMusic.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Collection.cpp" />
@@ -149,11 +150,13 @@
     <ClCompile Include="Physics.cpp" />
     <ClCompile Include="PlayerInput.cpp" />
     <ClCompile Include="Render.cpp" />
+    <ClCompile Include="SceneGraph.cpp" />
     <ClCompile Include="SoundEffects.cpp" />
-    <ClCompile Include="Sprite.cpp" />
+    <ClCompile Include="SplashScreen.cpp" />
+    <ClCompile Include="SpriteRenderer.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="Textbox.cpp" />
-    <ClCompile Include="Transform.cpp" />
+    <ClCompile Include="Parameters.cpp" />
     <ClCompile Include="UserInterface.cpp" />
     <ClCompile Include="WorldBuilder.cpp" />
   </ItemGroup>
@@ -161,6 +164,7 @@
     <ClInclude Include="Actor.h" />
     <ClInclude Include="AI.h" />
     <ClInclude Include="Animation.h" />
+    <ClInclude Include="AudioManager.h" />
     <ClInclude Include="BackgroundMusic.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Collection.h" />
@@ -173,12 +177,14 @@
     <ClInclude Include="Physics.h" />
     <ClInclude Include="PlayerInput.h" />
     <ClInclude Include="Render.h" />
+    <ClInclude Include="SceneGraph.h" />
     <ClInclude Include="SoundEffects.h" />
-    <ClInclude Include="Sprite.h" />
+    <ClInclude Include="SplashScreen.h" />
+    <ClInclude Include="SpriteRenderer.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetever.h" />
     <ClInclude Include="Textbox.h" />
-    <ClInclude Include="Transform.h" />
+    <ClInclude Include="Parameters.h" />
     <ClInclude Include="UserInterface.h" />
     <ClInclude Include="WorldBuilder.h" />
   </ItemGroup>
