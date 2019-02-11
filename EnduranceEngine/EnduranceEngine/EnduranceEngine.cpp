@@ -1,5 +1,4 @@
 #include <SFML\Graphics.hpp>
-#include <SFML\Audio.hpp>
 
 #include <windows.h>
 #include <DirectXMath.h>
@@ -129,25 +128,14 @@ void EnduranceEngine::Initialize()
 	ReadCPUSpeed();
 }
 
+int EnduranceEngine::Start()
+{
+	Time dt;	
+	splashScreen.Update(dt);
+	return 0;
+}
+
 static TCHAR szWindowClass[] = _T("win32app");
 static TCHAR szTitle[] = _T("Win32 Guided Tour Application");
 HINSTANCE hInst;
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
-
-int EnduranceEngine::Start()
-{
-	Time dt;
-	splashScreen.Update(dt);
-
-	//not finished; sound is still mute
-	SoundBuffer buffer;
-	if (!buffer.loadFromFile("opening_Audio.wav")) {
-		return -1;
-	}
-
-	Sound sound;
-	sound.setBuffer(buffer);
-	sound.play();
-
-	return 0;
-}

@@ -1,4 +1,12 @@
+#include <SFML/Graphics.hpp>
+
 #include "SplashScreen.h"
+
+#include <sstream>
+#include <string>
+
+using namespace sf;
+using namespace std;
 
 SplashScreen::SplashScreen()
 {
@@ -39,8 +47,8 @@ void SplashScreen::Update(Time dt)
 		}
 
 		window.clear();
-		window.draw(s_logo);
 
+		window.draw(s_logo);
 		c.restart();
 		dt += c.getElapsedTime();
 		float seconds = dt.asSeconds();
@@ -51,10 +59,6 @@ void SplashScreen::Update(Time dt)
 
 		text.setString(s);
 		window.draw(text);
-
-		if (seconds * 1000 >= 2) {
-			window.close();
-		}
 
 		window.display();
 	}
