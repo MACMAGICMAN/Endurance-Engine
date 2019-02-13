@@ -122,6 +122,11 @@ DWORD ReadCPUSpeed() {
 	return dwMHz;
 }
 
+static TCHAR szWindowClass[] = _T("win32app");
+static TCHAR szTitle[] = _T("Win32 Guided Tour Application");
+HINSTANCE hInst;
+LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
+
 void EnduranceEngine::Initialize()
 {
 	CheckInstance();
@@ -130,17 +135,10 @@ void EnduranceEngine::Initialize()
 	ReadCPUSpeed();
 }
 
-static TCHAR szWindowClass[] = _T("win32app");
-static TCHAR szTitle[] = _T("Win32 Guided Tour Application");
-HINSTANCE hInst;
-LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
-
 int EnduranceEngine::Start()
 {
 	Time dt;
 	splashScreen.Update(dt);
-
-
 
 	return 0;
 }

@@ -17,6 +17,4 @@ public:
 
 protected:
 
-	//SoundBuffer sb;
-
 };

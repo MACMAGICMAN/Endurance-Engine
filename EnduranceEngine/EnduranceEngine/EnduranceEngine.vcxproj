@@ -156,7 +156,7 @@
     <ClCompile Include="SpriteRenderer.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="Textbox.cpp" />
-    <ClCompile Include="Parameters.cpp" />
+    <ClCompile Include="Properties.cpp" />
     <ClCompile Include="UserInterface.cpp" />
     <ClCompile Include="WorldBuilder.cpp" />
   </ItemGroup>
@@ -184,7 +184,7 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetever.h" />
     <ClInclude Include="Textbox.h" />
-    <ClInclude Include="Parameters.h" />
+    <ClInclude Include="Properties.h" />
     <ClInclude Include="UserInterface.h" />
     <ClInclude Include="WorldBuilder.h" />
   </ItemGroup>

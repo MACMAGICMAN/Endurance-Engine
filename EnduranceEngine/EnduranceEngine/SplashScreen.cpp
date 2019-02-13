@@ -1,6 +1,10 @@
 #include "SplashScreen.h"
 #include "SceneGraph.h"
 
+#include <windows.h>
+#include <sstream>
+#include <string>
+
 SplashScreen::SplashScreen()
 {
 
@@ -9,6 +13,18 @@ SplashScreen::SplashScreen()
 SplashScreen::~SplashScreen()
 {
 
+}
+
+void TestAudio()
+{	
+	SoundBuffer buffer;
+	if (!buffer.loadFromFile("../Documents/Import/startup.wav")) {
+		buffer.loadFromFile("../Documents/Import/startup.wav");
+	}
+	Sound sound;
+	sound.setBuffer(buffer);
+	sound.play();
+	OutputDebugString("TestAudio called.\n");
 }
 
 void SplashScreen::Update(Time dt)
@@ -28,15 +44,7 @@ void SplashScreen::Update(Time dt)
 	text.setFillColor(Color::Red);
 	text.setCharacterSize(32);
 
-	/*SoundBuffer buffer;
-	if (!buffer.loadFromFile("../Documents/Import/startup.wav")) {
-		buffer.loadFromFile("../Documents/Import/startup.wav");
-	}
-
-	Sound sound;
-	sound.setBuffer(buffer);
-	sound.play();*/
-
+	TestAudio();
 
 	while (window.isOpen()) {
 		Event event;
@@ -53,14 +61,14 @@ void SplashScreen::Update(Time dt)
 		dt += c.getElapsedTime();
 		float seconds = dt.asSeconds();
 
-		ostringstream oss;
+		std::ostringstream oss;
 		oss << seconds * 1000;
-		string s(oss.str());
+		std::string s(oss.str());
 
 		text.setString(s);
 		window.draw(text);
 
-		if (seconds * 1000 >= 2) {
+		if (seconds * 1000 >= 5) {
 			window.close();
 		}
 
