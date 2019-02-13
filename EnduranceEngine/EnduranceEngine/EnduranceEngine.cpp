@@ -1,4 +1,5 @@
 #include <SFML\Graphics.hpp>
+#include <SFML\Audio.hpp>
 
 #include <windows.h>
 #include <DirectXMath.h>
@@ -15,6 +16,7 @@
 
 #include "EnduranceEngine.h"
 #include "SplashScreen.h"
+#include "SceneGraph.h"
 
 using namespace std;
 using namespace DirectX;
@@ -120,6 +122,11 @@ DWORD ReadCPUSpeed() {
 	return dwMHz;
 }
 
+static TCHAR szWindowClass[] = _T("win32app");
+static TCHAR szTitle[] = _T("Win32 Guided Tour Application");
+HINSTANCE hInst;
+LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
+
 void EnduranceEngine::Initialize()
 {
 	CheckInstance();
@@ -134,8 +141,3 @@ int EnduranceEngine::Start()
 	splashScreen.Update(dt);
 	return 0;
 }
-
-static TCHAR szWindowClass[] = _T("win32app");
-static TCHAR szTitle[] = _T("Win32 Guided Tour Application");
-HINSTANCE hInst;
-LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);

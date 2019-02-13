@@ -1,12 +1,9 @@
-#include <SFML/Graphics.hpp>
-
 #include "SplashScreen.h"
+#include "SceneGraph.h"
 
+#include <windows.h>
 #include <sstream>
 #include <string>
-
-using namespace sf;
-using namespace std;
 
 SplashScreen::SplashScreen()
 {
@@ -18,17 +15,26 @@ SplashScreen::~SplashScreen()
 
 }
 
+void TestAudio()
+{	
+	SoundBuffer buffer;
+	if (!buffer.loadFromFile("../Documents/Import/startup.wav")) {
+		buffer.loadFromFile("../Documents/Import/startup.wav");
+	}
+	Sound sound;
+	sound.setBuffer(buffer);
+	sound.play();
+	OutputDebugString("TestAudio called.\n");
+}
+
 void SplashScreen::Update(Time dt)
 {
 	Clock c;
-	
-	Texture t_logo;
-	t_logo.loadFromFile("../Documents/Import/logo.jpg");
+	SceneGraph splash;
+	splash.sprite.LoadSprite("../Documents/Import/logo.jpg");
+	splash.audio.AssignAudio("../Documents/Import/startup.wav");
 
-	Sprite s_logo;
-	s_logo.setTexture(t_logo);
-	
-	RenderWindow window(VideoMode(t_logo.getSize().x, t_logo.getSize().y), "Splash screen test"/*, Style::None*/);
+	RenderWindow window(VideoMode(splash.sprite.texture.getSize().x, splash.sprite.texture.getSize().y), "Splash screen test"/*, Style::None*/);
 
 	Font bluehighway;
 	bluehighway.loadFromFile("../Documents/Import/blue highway.ttf");
@@ -37,6 +43,8 @@ void SplashScreen::Update(Time dt)
 	text.setFont(bluehighway);
 	text.setFillColor(Color::Red);
 	text.setCharacterSize(32);
+
+	TestAudio();
 
 	while (window.isOpen()) {
 		Event event;
@@ -47,19 +55,23 @@ void SplashScreen::Update(Time dt)
 		}
 
 		window.clear();
-
 		window.draw(s_logo);
+		window.draw(splash.sprite.image);
+
 		c.restart();
 		dt += c.getElapsedTime();
 		float seconds = dt.asSeconds();
 
-		ostringstream oss;
+		std::ostringstream oss;
 		oss << seconds * 1000;
-		string s(oss.str());
+		std::string s(oss.str());
 
 		text.setString(s);
 		window.draw(text);
 
+		if (seconds * 1000 >= 5) {
+			window.close();
+		}
 		window.display();
 	}
 }
