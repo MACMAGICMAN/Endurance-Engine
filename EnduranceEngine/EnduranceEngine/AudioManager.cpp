@@ -1,5 +1,9 @@
 #include "AudioManager.h"
 
+SoundBuffer soundBuffer;
+Sound sound;
+Music music;
+
 AudioManager::AudioManager()
 {
 
@@ -22,13 +26,11 @@ AudioManager::~AudioManager()
 
 void AudioManager::AssignAudio(String str)
 {
-	SoundBuffer sb;
-	if (!sb.loadFromFile(str)) {
-		sb.loadFromFile(str);
+	if (!soundBuffer.loadFromFile(str)) {
+		soundBuffer.loadFromFile(str);
 	}
 
-	Sound sound;
-	sound.setBuffer(sb);
+	sound.setBuffer(soundBuffer);
 	sound.play();
 }
 

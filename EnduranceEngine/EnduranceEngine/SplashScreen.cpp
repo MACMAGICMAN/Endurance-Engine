@@ -44,7 +44,7 @@ void SplashScreen::Update(Time dt)
 	text.setFillColor(Color::Red);
 	text.setCharacterSize(32);
 
-	TestAudio();
+	//TestAudio();
 
 	while (window.isOpen()) {
 		Event event;

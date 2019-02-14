@@ -15,6 +15,6 @@ public:
 	void PlayAudio();
 	void OpenMusic(String str);
 
-protected:
+private:
 
 };
