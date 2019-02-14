@@ -39,6 +39,9 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BackgroundMusic.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="Collection.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -111,6 +114,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="targetever.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BackgroundMusic.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Collection.h">

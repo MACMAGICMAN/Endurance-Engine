@@ -32,7 +32,7 @@ void SplashScreen::Update(Time dt)
 	Clock c;
 	SceneGraph splash;
 	splash.sprite.LoadSprite("../Documents/Import/logo.jpg");
-	splash.audio.PlayAudio("../Documents/Import/startup.wav");
+	splash.audio.AssignAudio("../Documents/Import/startup.wav");
 
 	RenderWindow window(VideoMode(splash.sprite.texture.getSize().x, splash.sprite.texture.getSize().y), "Splash screen test"/*, Style::None*/);
 
@@ -55,6 +55,7 @@ void SplashScreen::Update(Time dt)
 		}
 
 		window.clear();
+		window.draw(s_logo);
 		window.draw(splash.sprite.image);
 
 		c.restart();

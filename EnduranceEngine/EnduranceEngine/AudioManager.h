@@ -10,11 +10,11 @@ class AudioManager
 public:
 	AudioManager();
 	~AudioManager();
-	void PlayAudio(String filepath);
-	void PlayMusic(String filepath);
+	//void LoadBackgroundMusic();
+	void AssignAudio(String str);
+	void PlayAudio();
+	void OpenMusic(String str);
 
-private:
-	SoundBuffer soundBuffer;
-	Sound sound;
-	Music music;
+protected:
+
 };

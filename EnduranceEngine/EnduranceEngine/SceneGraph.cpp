@@ -21,6 +21,8 @@ void SceneGraph::SetParent(SceneGraph& p)
 	parent = &p;
 }
 
+
+
 void SceneGraph::Update(float msec)
 {
 	if (parent)
@@ -36,3 +38,4 @@ void SceneGraph::Update(float msec)
 		(i)->Update(msec);
 	}
 }
+
