@@ -1,6 +1,47 @@
-﻿﻿  AudioManager.cpp
-  EnduranceEngine.cpp
-  SceneGraph.cpp
-  SplashScreen.cpp
-  Generating Code...
-  EnduranceEngine.vcxproj -> C:\Users\nicch\Documents\School\S6\Game Engine\Endurance-Engine\EnduranceEngine\x64\Debug\EnduranceEngine.exe
+﻿  SceneGraph.cpp
+d:\program files\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\xmemory0(881): error C2280: 'SceneGraph::SceneGraph(const SceneGraph &)': attempting to reference a deleted function
+  c:\users\nicch\documents\school\s6\game engine\endurance-engine\enduranceengine\enduranceengine\scenegraph.h(26): note: compiler has generated 'SceneGraph::SceneGraph' here
+  c:\users\nicch\documents\school\s6\game engine\endurance-engine\enduranceengine\enduranceengine\scenegraph.h(26): note: 'SceneGraph::SceneGraph(const SceneGraph &)': function was implicitly deleted because a data member invokes a deleted or inaccessible function 'AudioManager::AudioManager(const AudioManager &)'
+  c:\users\nicch\documents\school\s6\game engine\endurance-engine\enduranceengine\enduranceengine\audiomanager.h(20): note: 'AudioManager::AudioManager(const AudioManager &)': function was implicitly deleted because a data member invokes a deleted or inaccessible function 'sf::Music::Music(const sf::Music &)'
+  c:\users\nicch\documents\school\s6\game engine\endurance-engine\enduranceengine\sfml-2.5.1\include\sfml\audio\music.hpp(283): note: 'sf::Music::Music(const sf::Music &)': function was implicitly deleted because a base class invokes a deleted or inaccessible function 'sf::SoundStream::SoundStream(const sf::SoundStream &)'
+  c:\users\nicch\documents\school\s6\game engine\endurance-engine\enduranceengine\sfml-2.5.1\include\sfml\audio\soundstream.hpp(320): note: 'sf::SoundStream::SoundStream(const sf::SoundStream &)': function was implicitly deleted because a data member invokes a deleted or inaccessible function 'sf::Thread::Thread(const sf::Thread &)'
+  c:\users\nicch\documents\school\s6\game engine\endurance-engine\enduranceengine\sfml-2.5.1\include\sfml\system\thread.hpp(191): note: 'sf::Thread::Thread(const sf::Thread &)': function was implicitly deleted because a base class invokes a deleted or inaccessible function 'sf::NonCopyable::NonCopyable(const sf::NonCopyable &)'
+  d:\program files\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\vector(900): note: see reference to function template instantiation 'void std::_Default_allocator_traits<_Alloc>::construct<_Ty,const _Ty&>(_Alloc &,_Objty *const ,const _Ty &)' being compiled
+          with
+          [
+              _Alloc=std::allocator<SceneGraph>,
+              _Ty=SceneGraph,
+              _Objty=SceneGraph
+          ]
+  d:\program files\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\vector(902): note: see reference to function template instantiation 'void std::_Default_allocator_traits<_Alloc>::construct<_Ty,const _Ty&>(_Alloc &,_Objty *const ,const _Ty &)' being compiled
+          with
+          [
+              _Alloc=std::allocator<SceneGraph>,
+              _Ty=SceneGraph,
+              _Objty=SceneGraph
+          ]
+  d:\program files\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\vector(916): note: see reference to function template instantiation 'void std::vector<SceneGraph,std::allocator<_Ty>>::_Emplace_back_with_unused_capacity<const _Ty&>(const _Ty &)' being compiled
+          with
+          [
+              _Ty=SceneGraph
+          ]
+  d:\program files\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\vector(932): note: see reference to function template instantiation 'void std::vector<SceneGraph,std::allocator<_Ty>>::emplace_back<const _Ty&>(const _Ty &)' being compiled
+          with
+          [
+              _Ty=SceneGraph
+          ]
+  d:\program files\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\vector(931): note: while compiling class template member function 'void std::vector<SceneGraph,std::allocator<_Ty>>::push_back(const _Ty &)'
+          with
+          [
+              _Ty=SceneGraph
+          ]
+  c:\users\nicch\documents\school\s6\game engine\endurance-engine\enduranceengine\enduranceengine\scenegraph.cpp(15): note: see reference to function template instantiation 'void std::vector<SceneGraph,std::allocator<_Ty>>::push_back(const _Ty &)' being compiled
+          with
+          [
+              _Ty=SceneGraph
+          ]
+  c:\users\nicch\documents\school\s6\game engine\endurance-engine\enduranceengine\enduranceengine\scenegraph.h(25): note: see reference to class template instantiation 'std::vector<SceneGraph,std::allocator<_Ty>>' being compiled
+          with
+          [
+              _Ty=SceneGraph
+          ]
