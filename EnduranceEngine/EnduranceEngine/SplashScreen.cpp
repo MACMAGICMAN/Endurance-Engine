@@ -55,7 +55,6 @@ void SplashScreen::Update(Time dt)
 		}
 
 		window.clear();
-		window.draw(s_logo);
 		window.draw(splash.sprite.image);
 
 		c.restart();

@@ -1,6 +1,5 @@
-﻿﻿  AudioManager.cpp
-  EnduranceEngine.cpp
-  SceneGraph.cpp
-  SplashScreen.cpp
+﻿  Actor.cpp
+  Camera.cpp
   Generating Code...
+  LINK : C:\Users\nicch\Documents\School\S6\Game Engine\Endurance-Engine\EnduranceEngine\x64\Debug\EnduranceEngine.exe not found or not built by the last incremental link; performing full link
   EnduranceEngine.vcxproj -> C:\Users\nicch\Documents\School\S6\Game Engine\Endurance-Engine\EnduranceEngine\x64\Debug\EnduranceEngine.exe
