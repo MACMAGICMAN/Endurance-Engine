@@ -14,25 +14,12 @@ SplashScreen::~SplashScreen()
 {
 
 }
-
-void TestAudio()
-{	
-	SoundBuffer buffer;
-	if (!buffer.loadFromFile("../Documents/Import/startup.wav")) {
-		buffer.loadFromFile("../Documents/Import/startup.wav");
-	}
-	Sound sound;
-	sound.setBuffer(buffer);
-	sound.play();
-	OutputDebugString("TestAudio called.\n");
-}
-
 void SplashScreen::Update(Time dt)
 {
 	Clock c;
 	SceneGraph splash;
 	splash.sprite.LoadSprite("../Documents/Import/logo.jpg");
-	splash.audio.AssignAudio("../Documents/Import/startup.wav");
+	splash.audio.PlayAudio("../Documents/Import/startup.wav");
 
 	RenderWindow window(VideoMode(splash.sprite.texture.getSize().x, splash.sprite.texture.getSize().y), "Splash screen test"/*, Style::None*/);
 
@@ -43,8 +30,6 @@ void SplashScreen::Update(Time dt)
 	text.setFont(bluehighway);
 	text.setFillColor(Color::Red);
 	text.setCharacterSize(32);
-
-	//TestAudio();
 
 	while (window.isOpen()) {
 		Event event;

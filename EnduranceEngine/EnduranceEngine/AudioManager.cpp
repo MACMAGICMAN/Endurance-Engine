@@ -14,36 +14,18 @@ AudioManager::~AudioManager()
 
 }
 
-/*void AudioManager::LoadBackgroundMusic()
+void AudioManager::PlayAudio(String filepath)
 {
-	SoundBuffer sb;
-	sb.loadFromFile("../Documents/Import/startup.wav");
-
-	Sound sound;
-	sound.setBuffer(sb);
-	sound.play();
-}*/
-
-void AudioManager::AssignAudio(String str)
-{
-	if (!soundBuffer.loadFromFile(str)) {
-		soundBuffer.loadFromFile(str);
+	if (!soundBuffer.loadFromFile(filepath)) {
+		soundBuffer.loadFromFile(filepath);
 	}
 
 	sound.setBuffer(soundBuffer);
 	sound.play();
 }
 
-void AudioManager::OpenMusic(String str)
+void AudioManager::OpenMusic(String filepath)
 {
-	Music song;
-	song.openFromFile(str);
-	song.play();
-}
-
-void AudioManager::PlayAudio()
-{
-	Sound sound;
-	//sound.setBuffer(sb);
-	sound.play();
+	music.openFromFile(filepath);
+	music.play();
 }
