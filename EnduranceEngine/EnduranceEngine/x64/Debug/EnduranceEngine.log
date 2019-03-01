@@ -1,1 +1,30 @@
-﻿  EnduranceEngine.vcxproj -> C:\Users\nicch\Documents\School\S6\Game Engine\Endurance-Engine\EnduranceEngine\x64\Debug\EnduranceEngine.exe
+﻿  Actor.cpp
+  AI.cpp
+  Animation.cpp
+  AudioManager.cpp
+  Camera.cpp
+  Collection.cpp
+  EnduranceEngine.cpp
+  EventHandler.cpp
+c:\users\mac\documents\github\endurance-engine\enduranceengine\enduranceengine\eventhandler.cpp(9): warning C4244: 'argument': conversion from 'LPARAM' to 'LONG', possible loss of data
+  Initialize.cpp
+  InputInterface.cpp
+  MainSource.cpp
+  Menu.cpp
+  Physics.cpp
+  PlayerInput.cpp
+  Render.cpp
+  SceneGraph.cpp
+  SoundEffects.cpp
+  SplashScreen.cpp
+  SpriteRenderer.cpp
+  stdafx.cpp
+  Generating Code...
+  Compiling...
+  Textbox.cpp
+  Properties.cpp
+  UserInterface.cpp
+  WorldBuilder.cpp
+  Generating Code...
+  LINK : C:\Users\Mac\Documents\GitHub\Endurance-Engine\EnduranceEngine\x64\Debug\EnduranceEngine.exe not found or not built by the last incremental link; performing full link
+  EnduranceEngine.vcxproj -> C:\Users\Mac\Documents\GitHub\Endurance-Engine\EnduranceEngine\x64\Debug\EnduranceEngine.exe
