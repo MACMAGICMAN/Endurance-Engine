@@ -17,7 +17,7 @@ SplashScreen::~SplashScreen()
 void SplashScreen::Update(Time dt)
 {
 	Clock c;
-	SceneGraph splash;
+	SceneGraph splash = SceneGraph();
 	splash.sprite.LoadSprite("../Documents/Import/logo.jpg");
 	splash.audio.PlayAudio("../Documents/Import/startup.wav");
 
