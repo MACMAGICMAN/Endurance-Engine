@@ -1,7 +1,8 @@
 #include "SplashScreen.h"
 #include "SceneGraph.h"
 
-#include <windows.h>
+#include <SFML/system.hpp>
+#include <SFML/Window.hpp>
 #include <sstream>
 #include <string>
 
