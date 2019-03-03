@@ -7,5 +7,5 @@ class SplashScreen {
 public:
 	SplashScreen();
 	~SplashScreen();
-	void Update(Time dt);
+	void Update(/*Time dt*/);
 };
