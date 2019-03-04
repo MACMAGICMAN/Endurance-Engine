@@ -1,6 +1,8 @@
 #include "AudioManager.h"
 
-
+SoundBuffer soundBuffer;
+Sound sound;
+Music music;
 
 AudioManager::AudioManager()
 {
@@ -22,8 +24,8 @@ void AudioManager::PlayAudio(String filepath)
 	sound.play();
 }
 
-/*void AudioManager::OpenMusic(String filepath)
+void AudioManager::OpenMusic(String filepath)
 {
 	music.openFromFile(filepath);
 	music.play();
-}*/
+}
