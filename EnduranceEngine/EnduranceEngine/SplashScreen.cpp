@@ -15,14 +15,18 @@ SplashScreen::~SplashScreen()
 {
 
 }
-void SplashScreen::Update(Time dt)
+
+void SplashScreen::Update(/*Time dt*/)
 {
 	Clock c;
-	SceneGraph splash;
+	c.restart();
+
+	SceneGraph splash = SceneGraph();	
 	splash.sprite.LoadSprite("../Documents/Import/logo.jpg");
 	splash.audio.PlayAudio("../Documents/Import/startup.wav");
 
 	RenderWindow window(VideoMode(splash.sprite.texture.getSize().x, splash.sprite.texture.getSize().y), "Splash screen test"/*, Style::None*/);
+	window.setFramerateLimit(60u);
 
 	Font bluehighway;
 	bluehighway.loadFromFile("../Documents/Import/blue highway.ttf");
@@ -42,21 +46,17 @@ void SplashScreen::Update(Time dt)
 
 		window.clear();
 		window.draw(splash.sprite.image);
-
-		c.restart();
-		dt += c.getElapsedTime();
-		float seconds = dt.asSeconds();
+		
+		float seconds = c.getElapsedTime().asSeconds();
+		splash.Update(seconds);
 
 		std::ostringstream oss;
-		oss << seconds * 1000;
+		oss << seconds;
 		std::string s(oss.str());
 
 		text.setString(s);
 		window.draw(text);
 
-		if (seconds * 1000 >= 5) {
-			window.close();
-		}
 		window.display();
 	}
 }

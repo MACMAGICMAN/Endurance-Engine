@@ -5,13 +5,15 @@
 #include "AudioManager.h"
 #include "SpriteRenderer.h"
 
+#include <vector>
+
 using namespace sf;
 
 class SceneGraph
 {
 public:
-	SceneGraph() { parent = NULL; }
-	//~SceneGraph(void);
+	SceneGraph();
+	~SceneGraph();
 
 	void SetParent(SceneGraph& p);
 	void AddChild(SceneGraph s);

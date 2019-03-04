@@ -1,5 +1,5 @@
 #include "SceneGraph.h"
-#include <vector>
+#include <windows.h>
 
 //deconstructor giving error
 /*SceneGraph::~SceneGraph(void)
@@ -9,6 +9,16 @@
 		delete children[i];
 	}
 }*/
+
+SceneGraph::SceneGraph()
+{
+	parent = nullptr;
+}
+
+SceneGraph::~SceneGraph()
+{
+	//children.erase(children.begin(), children.end());
+}
 
 void SceneGraph::AddChild(SceneGraph s)
 {
@@ -20,8 +30,6 @@ void SceneGraph::SetParent(SceneGraph& p)
 {
 	parent = &p;
 }
-
-
 
 void SceneGraph::Update(float msec)
 {
@@ -38,4 +46,3 @@ void SceneGraph::Update(float msec)
 		(i)->Update(msec);
 	}
 }
-
