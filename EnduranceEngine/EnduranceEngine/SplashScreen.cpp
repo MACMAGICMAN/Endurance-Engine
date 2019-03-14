@@ -1,9 +1,12 @@
 #include "SplashScreen.h"
 #include "SceneGraph.h"
+#include "PlayerInput.h"
 
 #include <windows.h>
 #include <sstream>
 #include <string>
+
+PlayerInput* playerInput = new PlayerInput();
 
 SplashScreen::SplashScreen()
 {
@@ -37,11 +40,14 @@ void SplashScreen::Update(Time dt)
 			if (event.type == Event::Closed) {
 				window.close();
 			}
+			
+			playerInput->MovePlayer(event, splash.sprite.image);
+			splash.keyboard.MovePlayer(event, splash.sprite.image);
+		
 		}
-
 		window.clear();
 		window.draw(splash.sprite.image);
-
+	
 		c.restart();
 		dt += c.getElapsedTime();
 		float seconds = dt.asSeconds();
@@ -53,9 +59,11 @@ void SplashScreen::Update(Time dt)
 		text.setString(s);
 		window.draw(text);
 
-		if (seconds * 1000 >= 5) {
-			window.close();
-		}
+		//if (seconds * 1000 >= 5) {
+		//	window.close();
+		//}
 		window.display();
 	}
+
+
 }

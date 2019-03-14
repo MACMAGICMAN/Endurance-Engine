@@ -12,5 +12,9 @@ public:
 	~AudioManager();
 
 	void PlayAudio(String filepath);
-	void OpenMusic(String filepath);
+	//void OpenMusic(String filepath);
+
+	SoundBuffer soundBuffer;
+	Sound sound;
+	//Music music;
 };

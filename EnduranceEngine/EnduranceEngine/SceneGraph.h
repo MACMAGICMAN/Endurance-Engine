@@ -19,6 +19,7 @@ public:
 	Properties t_object;
 	AudioManager audio;
 	SpriteRenderer sprite;
+	PlayerInput keyboard;
 
 protected:	
 	SceneGraph* parent;
