@@ -11,7 +11,7 @@ PlayerInput::PlayerInput()
 {
 }
 
-void PlayerInput::MovePlayer(sf::Event events, sf::Sprite& GameObject) {
+void PlayerInput::MovePlayer(sf::Event events, sf::Sprite& GameObject, float speed) {
 
 
 	if (events.type == sf::Event::EventType::KeyPressed)
@@ -22,24 +22,27 @@ void PlayerInput::MovePlayer(sf::Event events, sf::Sprite& GameObject) {
 		{
 			OutputDebugString("Left pressed\n");
 
-			GameObject.move(sf::Vector2f(2, 0));
+			GameObject.move(sf::Vector2f(-speed, 0));
 			
 			return;
 		}
 		case sf::Keyboard::Right:
 		{
 			OutputDebugString("Right pressed\n");
+			GameObject.move(sf::Vector2f(speed, 0));
 			break;
 		}
 		case sf::Keyboard::Up:
 		{
 			OutputDebugString("Up pressed\n");
+			GameObject.move(sf::Vector2f(0, -speed));
 			break;
 		}
 
 		case sf::Keyboard::Down:
 		{
 			OutputDebugString("Down pressed\n");
+			GameObject.move(sf::Vector2f(0, speed));
 			//window.close();
 			break;
 		}
