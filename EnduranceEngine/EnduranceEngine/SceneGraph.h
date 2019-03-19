@@ -21,6 +21,7 @@ public:
 	AudioManager audio;
 	SpriteRenderer sprite;
 	SpriteRenderer spriteTwo;
+	SpriteRenderer spritePlayer;
 	PlayerInput keyboard;
 	Collision Collision;
 

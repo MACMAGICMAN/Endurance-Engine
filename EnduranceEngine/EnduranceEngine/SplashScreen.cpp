@@ -22,11 +22,15 @@ void SplashScreen::Update(Time dt)
 	SceneGraph splash;
 	splash.sprite.LoadSprite("../Documents/Import/logo.jpg");
 	splash.spriteTwo.LoadSprite("../Documents/Import/logo.jpg");
+	splash.spritePlayer.LoadSprite("../Documents/Import/logo.jpg");
 	splash.audio.PlayAudio("../Documents/Import/startup.wav");
 
 	RenderWindow window(VideoMode(splash.sprite.texture.getSize().x, splash.sprite.texture.getSize().y), "Splash screen test"/*, Style::None*/);
 	
 	splash.spriteTwo.image.setPosition(sf::Vector2f(300, 200));
+	splash.spritePlayer.image.setPosition(sf::Vector2f(300, 200));
+	splash.spriteTwo.image.setScale(0.3, 0.3);
+	splash.spritePlayer.image.setScale(0.3, 0.3);
 	Font bluehighway;
 	bluehighway.loadFromFile("../Documents/Import/blue highway.ttf");
 
@@ -43,14 +47,17 @@ void SplashScreen::Update(Time dt)
 			}
 			
 			//playerInput->MovePlayer(event, splash.sprite.image);
-			splash.keyboard.MovePlayer(event, splash.sprite.image, 6);
-			splash.Collision.CollideWithPlayer(splash.sprite.image, splash.spriteTwo.image);
+			splash.keyboard.MovePlayer(event, splash.spritePlayer.image, 6);
+			splash.Collision.CollideWithPlayer(splash.spritePlayer.image, splash.spriteTwo.image);
 		
 		}
+		
+
 		window.clear();
 		
 		window.draw(splash.sprite.image);
 		window.draw(splash.spriteTwo.image);
+		window.draw(splash.spritePlayer.image);
 	
 		c.restart();
 		dt += c.getElapsedTime();
@@ -63,9 +70,10 @@ void SplashScreen::Update(Time dt)
 		text.setString(s);
 		window.draw(text);
 
-		//if (seconds * 1000 >= 5) {
-		//	window.close();
-		//}
+		if (seconds * 1000 >= 5) {
+			//window.close();
+		splash.sprite.image.setScale(0, 0);
+		}
 		window.display();
 	}
 

@@ -67,3 +67,7 @@ void PlayerInput::MovePlayer(sf::Event events, sf::Sprite& GameObject, float spe
 		
 	}
 }
+
+void SetPlayerSpeed() {
+
+}
