@@ -11,60 +11,54 @@ PlayerInput::PlayerInput()
 {
 }
 
-void PlayerInput::MovePlayer(sf::Event events, sf::Sprite& GameObject, float speed) {
+void PlayerInput::MovePlayer(Event events, sf::Sprite& player, float speed) {
 
-
-	if (events.type == sf::Event::EventType::KeyPressed)
+	//keyboard input
+	if (events.type == Event::EventType::KeyPressed)
 	{
-		switch (events.key.code)
-		{
-		case sf::Keyboard::Left:
-		{
-			OutputDebugString("Left pressed\n");
-
-			GameObject.move(sf::Vector2f(-speed, 0));
-			
-			return;
-		}
-		case sf::Keyboard::Right:
-		{
-			OutputDebugString("Right pressed\n");
-			GameObject.move(sf::Vector2f(speed, 0));
-			break;
-		}
-		case sf::Keyboard::Up:
-		{
-			OutputDebugString("Up pressed\n");
-			GameObject.move(sf::Vector2f(0, -speed));
-			break;
+		//cardinal directions
+		if (events.key.code == Keyboard::Left) {
+			player.move(Vector2f(-speed, 0));
 		}
 
-		case sf::Keyboard::Down:
-		{
-			OutputDebugString("Down pressed\n");
-			GameObject.move(sf::Vector2f(0, speed));
-			//window.close();
-			break;
+		else if (events.key.code == Keyboard::Right) {
+			player.move(Vector2f(speed, 0));
 		}
 
-		case sf::Keyboard::Space:
-		{
-			OutputDebugString("Space pressed\n");
-			break;
-		}
-		case sf::Keyboard::Enter:
-		{
-			OutputDebugString("Enter pressed\n");
-			break;
+		else if (events.key.code == Keyboard::Up) {
+			player.move(Vector2f(0, -speed));
 		}
 
+		else if (events.key.code == Keyboard::Down) {
+			player.move(Vector2f(0, speed));
+		}
 
+		//ordinal directions
+		if (Keyboard::isKeyPressed(Keyboard::Left) && Keyboard::isKeyPressed(Keyboard::Down))
+		{
+			player.move(Vector2f(-speed, speed));
+		}
+
+		if (Keyboard::isKeyPressed(Keyboard::Right) && Keyboard::isKeyPressed(Keyboard::Down))
+		{
+			player.move(Vector2f(speed, speed));
+		}
+
+		if (Keyboard::isKeyPressed(Keyboard::Left) && Keyboard::isKeyPressed(Keyboard::Up))
+		{
+			player.move(Vector2f(-speed, -speed));
+		}
+
+		if (Keyboard::isKeyPressed(Keyboard::Right) && Keyboard::isKeyPressed(Keyboard::Up))
+		{
+			player.move(Vector2f(speed, -speed));
 		}
 	}
 
-	if (events.type == sf::Event::EventType::MouseMoved) {
-		sf::Vector2i vec = sf::Mouse::getPosition();
-		
+	//mouse input
+	if (events.type == Event::EventType::MouseMoved) {
+		Vector2i vec = Mouse::getPosition();
+
 	}
 }
 

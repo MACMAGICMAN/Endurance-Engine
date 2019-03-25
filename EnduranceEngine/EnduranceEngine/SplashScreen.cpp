@@ -20,17 +20,23 @@ void SplashScreen::Update(Time dt)
 {
 	Clock c;
 	SceneGraph splash;
+	SceneGraph player;
+	SceneGraph wall;
+
 	splash.sprite.LoadSprite("../Documents/Import/logo.jpg");
-	splash.spriteTwo.LoadSprite("../Documents/Import/logo.jpg");
-	splash.spritePlayer.LoadSprite("../Documents/Import/logo.jpg");
+	player.sprite.LoadSprite("../Documents/Import/logo.jpg");
+	wall.sprite.LoadSprite("../Documents/Import/logo.jpg");
+
 	splash.audio.PlayAudio("../Documents/Import/startup.wav");
 
 	RenderWindow window(VideoMode(splash.sprite.texture.getSize().x, splash.sprite.texture.getSize().y), "Splash screen test"/*, Style::None*/);
 	
-	splash.spriteTwo.image.setPosition(sf::Vector2f(300, 200));
-	splash.spritePlayer.image.setPosition(sf::Vector2f(300, 200));
-	splash.spriteTwo.image.setScale(0.3, 0.3);
-	splash.spritePlayer.image.setScale(0.3, 0.3);
+	player.sprite.image.setPosition(sf::Vector2f(100, 200));
+	player.sprite.image.setScale(0.3, 0.3);
+	player.sprite.image.setColor(Color::Green);
+	wall.sprite.image.setPosition(sf::Vector2f(300, 200));
+	wall.sprite.image.setScale(0.3, 0.3);
+
 	Font bluehighway;
 	bluehighway.loadFromFile("../Documents/Import/blue highway.ttf");
 
@@ -44,21 +50,17 @@ void SplashScreen::Update(Time dt)
 		while (window.pollEvent(event)) {
 			if (event.type == Event::Closed) {
 				window.close();
-			}
-			
-			//playerInput->MovePlayer(event, splash.sprite.image);
-			splash.keyboard.MovePlayer(event, splash.spritePlayer.image, 6);
-			splash.Collision.CollideWithPlayer(splash.spritePlayer.image, splash.spriteTwo.image);
-		
+			}		
 		}
 		
 
 		window.clear();
 		
 		window.draw(splash.sprite.image);
-		window.draw(splash.spriteTwo.image);
-		window.draw(splash.spritePlayer.image);
+		window.draw(player.sprite.image);
+		window.draw(wall.sprite.image);
 	
+
 		c.restart();
 		dt += c.getElapsedTime();
 		float seconds = dt.asSeconds();
@@ -74,6 +76,9 @@ void SplashScreen::Update(Time dt)
 			//window.close();
 		splash.sprite.image.setScale(0, 0);
 		}
+
+		player.keyboard.MovePlayer(event, player.sprite.image, 0.2);
+		player.Collision.HandleCollisions(player.sprite.image, wall.sprite.image);
 		window.display();
 	}
 

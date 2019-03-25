@@ -1,4 +1,2 @@
-﻿  SplashScreen.cpp
-d:\documents\gameprogramming\endurance-engine\enduranceengine\enduranceengine\splashscreen.cpp(32): warning C4305: 'argument': truncation from 'double' to 'float'
-d:\documents\gameprogramming\endurance-engine\enduranceengine\enduranceengine\splashscreen.cpp(33): warning C4305: 'argument': truncation from 'double' to 'float'
-  EnduranceEngine.vcxproj -> D:\Documents\GameProgramming\Endurance-Engine\EnduranceEngine\x64\Debug\EnduranceEngine.exe
+﻿  PlayerInput.cpp
+  EnduranceEngine.vcxproj -> C:\Users\nicch\Documents\School\S6\Game Engine\Endurance-Engine\EnduranceEngine\x64\Debug\EnduranceEngine.exe

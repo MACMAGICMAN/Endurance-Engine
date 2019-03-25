@@ -1,9 +1,11 @@
 #pragma once
 #include "SFML/Graphics.hpp"
+
 class Collision
 {
 public:
 	Collision();
-	void CollideWithPlayer(sf::Sprite& CollideObjectOne, sf::Sprite& CollideObjectTwo);
+	void HandleCollisions(sf::Sprite& objectA, sf::Sprite& objectB);
+	//void Collide(SceneGraph objA, SceneGraph objB);
 };
 

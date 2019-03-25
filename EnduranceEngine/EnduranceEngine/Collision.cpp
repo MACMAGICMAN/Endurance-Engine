@@ -2,7 +2,6 @@
 #include "Collision.h"
 #include <windows.h>
 #include "SpriteRenderer.h"
-#include "SceneGraph.h"
 #include <sstream>
 #include <string>
 
@@ -12,58 +11,45 @@ Collision::Collision()
 }
 
 
-void Collision::CollideWithPlayer(sf::Sprite& CollideObjectOne, sf::Sprite& CollideObjectTwo) {
+void Collision::HandleCollisions(sf::Sprite& objectA, sf::Sprite& objectB) {
 
-	FloatRect playerBounds = CollideObjectOne.getGlobalBounds();
-	FloatRect wallBounds = CollideObjectTwo.getGlobalBounds();
-	FloatRect nexPos;
+	FloatRect a = objectA.getGlobalBounds();
+	FloatRect b = objectB.getGlobalBounds();
 
-	nexPos = playerBounds;
-
-
-	//if (CollideObjectOne.getGlobalBounds().intersects(CollideObjectTwo.getGlobalBounds())) {
-
-		//OutputDebugString("Colliding\n");
-		//CollideObjectOne.move(sf::Vector2f(0,-6));
-
-	//}
-	//else {
-	//	OutputDebugString("Not Colliding\n");
-	//}
-
-	if (wallBounds.intersects(nexPos))
-	{   
+	if (b.intersects(a))
+	{
 		//Player Bottom
-		if (playerBounds.top < wallBounds.top
-			&& playerBounds.top + playerBounds.height < wallBounds.top + wallBounds.height
-			&& playerBounds.left < wallBounds.left + wallBounds.width
-			&& playerBounds.left + playerBounds.width > wallBounds.left)
+		/*if (a.top < b.top
+			&& a.top + a.height < b.top + b.height
+			&& a.left < b.left + b.width
+			&& a.left + a.width > b.left)
 		{
 			CollideObjectOne.move(sf::Vector2f(0, 0));
-			CollideObjectOne.setPosition(playerBounds.left, wallBounds.top - playerBounds.height);
-		}
+			CollideObjectOne.setPosition(a.left, b.top - a.height);
+		}*/
 
-		//Player Top
-		else if (playerBounds.top > wallBounds.top
-			&& playerBounds.top + playerBounds.height > wallBounds.top + wallBounds.height
-			&& playerBounds.left < wallBounds.top + wallBounds.width
-			&& playerBounds.left + playerBounds.width >wallBounds.left)
-		{
-			CollideObjectOne.move(sf::Vector2f(0, 0));
-			CollideObjectOne.setPosition(playerBounds.left, wallBounds.top - wallBounds.height);
+		//bottom of A / top of B
+		if (a.top + a.height > b.top && a.top < b.top ) {
+			objectA.move(Vector2f(0, 0));
+			objectA.setPosition(a.left, b.top - a.height);
 		}
-
-		//Player Right
-		if (playerBounds.left < wallBounds.left
-			&& playerBounds.left + playerBounds.width < wallBounds.left + wallBounds.width
-			&& playerBounds.top < wallBounds.top + wallBounds.height
-			&& playerBounds.top + playerBounds.height > wallBounds.top)
-		{
-			CollideObjectOne.move(sf::Vector2f(0, 0));
-			CollideObjectOne.setPosition(wallBounds.left - playerBounds.width, playerBounds.top);
-		}
-			
-			
 		
+		//top of A / bottom of B
+		else if (a.top < b.top + b.height && a.top + a.height > b.top + b.height) {
+			objectA.move(Vector2f(0, 0));
+			objectA.setPosition(a.left, b.top + b.height);
+		}
+
+		//right of A / left of B
+		else if (a.left + a.width > b.left && a.left < b.left ) {
+			objectA.move(Vector2f(0, 0));
+			objectA.setPosition(b.left - a.left, a.top);
+		}
+
+		//left of A / right of B
+		else if (a.left < b.left + b.width && a.left + a.width > b.left + b.width) {
+			objectA.move(Vector2f(0, 0));
+			objectA.setPosition(b.left + b.width, a.top);
+		}
 	}
 }
