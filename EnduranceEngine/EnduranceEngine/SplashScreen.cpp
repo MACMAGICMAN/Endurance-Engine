@@ -47,13 +47,15 @@ void SplashScreen::Update(Time dt)
 			}
 			
 			//playerInput->MovePlayer(event, splash.sprite.image);
-			splash.keyboard.MovePlayer(event, splash.spritePlayer.image, 6);
+			
 			splash.Collision.CollideWithPlayer(splash.spritePlayer.image, splash.spriteTwo.image);
 		
 		}
 		
 
 		window.clear();
+
+		splash.keyboard.MovePlayer(event, splash.spritePlayer.image, 0.1);
 		
 		window.draw(splash.sprite.image);
 		window.draw(splash.spriteTwo.image);

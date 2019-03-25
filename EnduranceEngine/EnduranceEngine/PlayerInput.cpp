@@ -16,56 +16,60 @@ void PlayerInput::MovePlayer(sf::Event events, sf::Sprite& GameObject, float spe
 
 	if (events.type == sf::Event::EventType::KeyPressed)
 	{
-		switch (events.key.code)
-		{
-		case sf::Keyboard::Left:
-		{
-			OutputDebugString("Left pressed\n");
+		if (events.key.code == Keyboard::Left) {
 
+			//OutputDebugString("Left pressed\n");
 			GameObject.move(sf::Vector2f(-speed, 0));
-			
-			return;
 		}
-		case sf::Keyboard::Right:
-		{
-			OutputDebugString("Right pressed\n");
+
+		else if (events.key.code == Keyboard::Right) {
+
+			//OutputDebugString("Right pressed\n");
 			GameObject.move(sf::Vector2f(speed, 0));
-			break;
 		}
-		case sf::Keyboard::Up:
-		{
-			OutputDebugString("Up pressed\n");
+
+
+		else if (events.key.code == Keyboard::Up) {
+
+			//OutputDebugString("Up pressed\n");
 			GameObject.move(sf::Vector2f(0, -speed));
-			break;
 		}
 
-		case sf::Keyboard::Down:
-		{
-			OutputDebugString("Down pressed\n");
+
+		else if (events.key.code == Keyboard::Down) {
+
+			//OutputDebugString("Down pressed\n");
 			GameObject.move(sf::Vector2f(0, speed));
-			//window.close();
-			break;
 		}
 
-		case sf::Keyboard::Space:
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
 		{
-			OutputDebugString("Space pressed\n");
-			break;
-		}
-		case sf::Keyboard::Enter:
-		{
-			OutputDebugString("Enter pressed\n");
-			break;
+			GameObject.move(sf::Vector2f(-speed, speed));
 		}
 
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+		{
+			GameObject.move(sf::Vector2f(speed, speed));
+		}
+
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+		{
+			GameObject.move(sf::Vector2f(-speed, -speed));
+		}
+
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+		{
+			GameObject.move(sf::Vector2f(speed, -speed));
+		}
+
+
+		if (events.type == sf::Event::EventType::MouseMoved) {
+			sf::Vector2i vec = sf::Mouse::getPosition();
 
 		}
 	}
 
-	if (events.type == sf::Event::EventType::MouseMoved) {
-		sf::Vector2i vec = sf::Mouse::getPosition();
-		
-	}
+
 }
 
 void SetPlayerSpeed() {
