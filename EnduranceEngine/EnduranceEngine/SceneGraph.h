@@ -4,7 +4,6 @@
 #include "Properties.h"
 #include "AudioManager.h"
 #include "SpriteRenderer.h"
-#include "Collision.h"
 
 using namespace sf;
 
@@ -21,7 +20,6 @@ public:
 	AudioManager audio;
 	SpriteRenderer sprite;
 	PlayerInput keyboard;
-	Collision Collision;
 
 protected:	
 	SceneGraph* parent;

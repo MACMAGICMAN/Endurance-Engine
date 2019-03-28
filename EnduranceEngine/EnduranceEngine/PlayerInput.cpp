@@ -1,67 +1,52 @@
-#include "stdafx.h"
 #include "PlayerInput.h"
 #include <windows.h>
-#include "SpriteRenderer.h"
-#include "SceneGraph.h"
-
-#include <sstream>
-#include <string>
 
 PlayerInput::PlayerInput()
 {
 }
 
-void PlayerInput::MovePlayer(Event events, sf::Sprite& player, float speed) {
+void PlayerInput::MovePlayer(Event events, Sprite& sprite, float speed) {
 
 	//keyboard input
-	if (events.type == Event::EventType::KeyPressed)
+	if (events.type == Event::KeyPressed)
 	{
 		//cardinal directions
 		if (events.key.code == Keyboard::Left) {
-			player.move(Vector2f(-speed, 0));
+			sprite.move(-speed, 0);
 		}
 
-		else if (events.key.code == Keyboard::Right) {
-			player.move(Vector2f(speed, 0));
+		if (events.key.code == Keyboard::Right) {
+			sprite.move(speed, 0);
 		}
 
-		else if (events.key.code == Keyboard::Up) {
-			player.move(Vector2f(0, -speed));
+		if (events.key.code == Keyboard::Up) {
+			sprite.move(0, -speed);
 		}
 
-		else if (events.key.code == Keyboard::Down) {
-			player.move(Vector2f(0, speed));
+		if (events.key.code == Keyboard::Down) {
+			sprite.move(0, speed);
 		}
-
+		
 		//ordinal directions
 		if (Keyboard::isKeyPressed(Keyboard::Left) && Keyboard::isKeyPressed(Keyboard::Down))
 		{
-			player.move(Vector2f(-speed, speed));
+			sprite.move(-speed, speed);
 		}
 
 		if (Keyboard::isKeyPressed(Keyboard::Right) && Keyboard::isKeyPressed(Keyboard::Down))
 		{
-			player.move(Vector2f(speed, speed));
+			sprite.move(speed, speed);
 		}
 
 		if (Keyboard::isKeyPressed(Keyboard::Left) && Keyboard::isKeyPressed(Keyboard::Up))
 		{
-			player.move(Vector2f(-speed, -speed));
+			sprite.move(-speed, -speed);
 		}
 
 		if (Keyboard::isKeyPressed(Keyboard::Right) && Keyboard::isKeyPressed(Keyboard::Up))
 		{
-			player.move(Vector2f(speed, -speed));
+			sprite.move(speed, -speed);
 		}
+		
 	}
-
-	//mouse input
-	if (events.type == Event::EventType::MouseMoved) {
-		Vector2i vec = Mouse::getPosition();
-
-	}
-}
-
-void SetPlayerSpeed() {
-
 }

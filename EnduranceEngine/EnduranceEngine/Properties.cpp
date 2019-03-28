@@ -4,12 +4,10 @@
 
 Properties::Properties()
 {
-
 }
 
 Properties::~Properties()
 {
-
 }
 
 void Properties::Translate(float x, float y)
@@ -17,7 +15,6 @@ void Properties::Translate(float x, float y)
 	Transform t = GetTransform();
 	t.translate(x, y);
 	SetTransform(t);
-
 }
 
 void Properties::Scale(float x, float y)

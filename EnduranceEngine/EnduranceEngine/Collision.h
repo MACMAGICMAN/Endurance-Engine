@@ -6,6 +6,4 @@ class Collision
 public:
 	Collision();
 	void HandleCollisions(sf::Sprite& objectA, sf::Sprite& objectB);
-	//void Collide(SceneGraph objA, SceneGraph objB);
 };
-
