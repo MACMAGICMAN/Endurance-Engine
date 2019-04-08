@@ -2,7 +2,7 @@
 #include <SFML/Graphics/Transform.hpp>
 
 using namespace sf;
-
+//
 class Properties {
 public:
 	Properties();

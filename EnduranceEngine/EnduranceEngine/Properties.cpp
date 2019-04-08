@@ -4,7 +4,7 @@
 
 Properties::Properties()
 {
-
+//
 }
 
 Properties::~Properties()
