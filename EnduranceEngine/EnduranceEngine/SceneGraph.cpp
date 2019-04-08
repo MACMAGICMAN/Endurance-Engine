@@ -9,7 +9,7 @@
 		delete children[i];
 	}
 }*/
-//
+
 void SceneGraph::AddChild(SceneGraph s)
 {
 	children.push_back(s);

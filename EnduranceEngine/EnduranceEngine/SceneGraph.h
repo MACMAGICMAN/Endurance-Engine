@@ -27,4 +27,3 @@ protected:
 	SceneGraph* parent;
 	std::vector<SceneGraph> children;
 };
-//
