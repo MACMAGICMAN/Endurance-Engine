@@ -5,5 +5,5 @@
 class PlayerInput {
 public:
 	PlayerInput();
-	void MovePlayer(sf::Event Events, sf::Sprite& GameObject, float speed);
+	void MovePlayer(sf::Event Events, sf::Sprite& GameObject, float speed, sf::RenderWindow &win);
 };

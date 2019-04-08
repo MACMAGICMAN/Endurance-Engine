@@ -11,37 +11,39 @@ PlayerInput::PlayerInput()
 {
 }
 
-void PlayerInput::MovePlayer(sf::Event events, sf::Sprite& GameObject, float speed) {
+void PlayerInput::MovePlayer(sf::Event events, sf::Sprite& GameObject, float speed, sf::RenderWindow &win) {
 
 
 	if (events.type == sf::Event::EventType::KeyPressed)
 	{
-		if (events.key.code == Keyboard::Left) {
 
-			//OutputDebugString("Left pressed\n");
+		//Left, Right, Up, Down
+		if (events.key.code == Keyboard::Left) {
 			GameObject.move(sf::Vector2f(-speed, 0));
 		}
 
 		else if (events.key.code == Keyboard::Right) {
 
-			//OutputDebugString("Right pressed\n");
 			GameObject.move(sf::Vector2f(speed, 0));
 		}
 
 
 		else if (events.key.code == Keyboard::Up) {
 
-			//OutputDebugString("Up pressed\n");
 			GameObject.move(sf::Vector2f(0, -speed));
 		}
 
 
 		else if (events.key.code == Keyboard::Down) {
 
-			//OutputDebugString("Down pressed\n");
 			GameObject.move(sf::Vector2f(0, speed));
 		}
 
+		else if (events.key.code == Keyboard::Space){
+			//shoot?
+		}
+
+		//Diangonal Input
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
 		{
 			GameObject.move(sf::Vector2f(-speed, speed));
@@ -62,16 +64,27 @@ void PlayerInput::MovePlayer(sf::Event events, sf::Sprite& GameObject, float spe
 			GameObject.move(sf::Vector2f(speed, -speed));
 		}
 
-
-		if (events.type == sf::Event::EventType::MouseMoved) {
-			sf::Vector2i vec = sf::Mouse::getPosition();
-
-		}
+		//Mouse Input
+		
 	}
 
 
-}
+		//get current Position
+		sf::Vector2f curPos; 
+		//get Pivot Point
+		curPos.x = GameObject.getGlobalBounds().left; 
+		curPos.y = GameObject.getGlobalBounds().top;
+		sf::Vector2i position = sf::Mouse::getPosition(win);
 
-void SetPlayerSpeed() {
+		const float PI = 3.14159;
+
+		float dx = position.x - curPos.x;
+		float dy = position.y - curPos.y;
+
+		float rotation = (atan2(dy/2, dx / 2)) * 180 / PI;
+		GameObject.setOrigin(400, 400);
+		GameObject.setRotation(rotation);
+		
+
 
 }
