@@ -2,7 +2,7 @@
 #include "UserInterface.h"
 #include"SFML/Graphics.hpp"
 
-#define MAX_NUMBER_OF_ITEMS 3
+#define MAX_NUMBER_OF_ITEMS 4
 
 class Menu {
 public:
@@ -12,6 +12,7 @@ public:
 	void draw(sf::RenderWindow &window);
 	void clear(sf::RenderWindow &window);
 	void show(sf::RenderWindow &window);
+	void back(sf::RenderWindow &window);
 	void moveUp();
 	void moveDown();
 	int GetPressedItem() { return selectedItemIndex; }

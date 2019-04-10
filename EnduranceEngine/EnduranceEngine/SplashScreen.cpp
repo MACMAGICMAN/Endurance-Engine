@@ -25,6 +25,7 @@ void SplashScreen::Update(Time dt)
 	SceneGraph splash;
 	SceneGraph background;
 	SceneGraph menuBackground;
+	SceneGraph optionsBackground;
 	SceneGraph player;
 	SceneGraph wall;
 	
@@ -33,6 +34,7 @@ void SplashScreen::Update(Time dt)
 	splash.sprite.LoadSprite("../Documents/Import/back_Logo.jpg");
 	background.sprite.LoadSprite("../Documents/Import/back_Game.jpg");
 	menuBackground.sprite.LoadSprite("../Documents/Import/back_Main.jpg");
+	optionsBackground.sprite.LoadSprite("../Documents/Import/back_Options.jpg");
 	wall.sprite.LoadSprite("../Documents/Import/back_Logo.jpg");
 	player.sprite.LoadSprite("../Documents/Import/player_Sprite.png");
 
@@ -48,7 +50,9 @@ void SplashScreen::Update(Time dt)
 	player.sprite.image.setPosition(sf::Vector2f(300, 200));
 	player.sprite.image.setScale(0, 0);
 	background.sprite.image.setScale(0, 0);
+	optionsBackground.sprite.image.setScale(0, 0);
 	menuBackground.sprite.image.setScale(1,1);
+
 	//background.sprite.image.setPosition(sf::Vector2f(300, 200));
 	//background.sprite.image.setScale(1, 1);
 
@@ -87,17 +91,24 @@ void SplashScreen::Update(Time dt)
 					{
 					case 0:
 						menuBackground.sprite.image.setScale(0, 0);
+						optionsBackground.sprite.image.setScale(0, 0);
 						background.sprite.image.setScale(1, 1);
 						player.sprite.image.setScale(0.1, 0.1);
 						wall.sprite.image.setScale(0.3, 0.3);
 						menu.clear(window);
 						break;
 					case 1:
-						
+						optionsBackground.sprite.image.setScale(1, 1);
+						menu.back(window);
 						break;
 					case 2:
 						window.close();
+						break;
+					case 3:
+						optionsBackground.sprite.image.setScale(0, 0);
+						break;
 					}
+
 					
 				}
 			
@@ -117,6 +128,7 @@ void SplashScreen::Update(Time dt)
 		window.draw(wall.sprite.image);
 		window.draw(player.sprite.image);
 		window.draw(menuBackground.sprite.image);
+		window.draw(optionsBackground.sprite.image);
 		menu.draw(window);
 		window.draw(splash.sprite.image);
 		
