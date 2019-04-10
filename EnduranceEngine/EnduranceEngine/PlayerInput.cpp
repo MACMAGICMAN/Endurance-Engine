@@ -5,48 +5,73 @@ PlayerInput::PlayerInput()
 {
 }
 
-void PlayerInput::MovePlayer(Event events, Sprite& sprite, float speed) {
+
+void PlayerInput::MovePlayer(sf::Event events, sf::Sprite& GameObject, float speed, sf::RenderWindow &win) {
+
 
 	//keyboard input
 	if (events.type == Event::KeyPressed)
 	{
-		//cardinal directions
+
+		//Left, Right, Up, Down
 		if (events.key.code == Keyboard::Left) {
-			sprite.move(-speed, 0);
+			GameObject.move(sf::Vector2f(-speed, 0));
 		}
 
-		if (events.key.code == Keyboard::Right) {
-			sprite.move(speed, 0);
+		else if (events.key.code == Keyboard::Right) {
+			GameObject.move(sf::Vector2f(speed, 0));
 		}
 
-		if (events.key.code == Keyboard::Up) {
-			sprite.move(0, -speed);
+		else if (events.key.code == Keyboard::Up) {
+			GameObject.move(sf::Vector2f(0, -speed));
 		}
 
-		if (events.key.code == Keyboard::Down) {
-			sprite.move(0, speed);
+		else if (events.key.code == Keyboard::Down) {
+			GameObject.move(sf::Vector2f(0, speed));
 		}
-		
-		//ordinal directions
-		if (Keyboard::isKeyPressed(Keyboard::Left) && Keyboard::isKeyPressed(Keyboard::Down))
+
+		else if (events.key.code == Keyboard::Space){
+			//shoot?
+		}
+
+		//Diangonal Input
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
 		{
-			sprite.move(-speed, speed);
+			GameObject.move(sf::Vector2f(-speed, speed));
 		}
 
-		if (Keyboard::isKeyPressed(Keyboard::Right) && Keyboard::isKeyPressed(Keyboard::Down))
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
 		{
-			sprite.move(speed, speed);
+			GameObject.move(sf::Vector2f(speed, speed));
 		}
 
-		if (Keyboard::isKeyPressed(Keyboard::Left) && Keyboard::isKeyPressed(Keyboard::Up))
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 		{
-			sprite.move(-speed, -speed);
+			GameObject.move(sf::Vector2f(-speed, -speed));
 		}
 
-		if (Keyboard::isKeyPressed(Keyboard::Right) && Keyboard::isKeyPressed(Keyboard::Up))
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 		{
-			sprite.move(speed, -speed);
+			GameObject.move(sf::Vector2f(speed, -speed));
 		}
+
+		//Mouse Input
 		
 	}
+
+		//get current Position
+		sf::Vector2f curPos; 
+		//get Pivot Point
+		curPos.x = GameObject.getGlobalBounds().left; 
+		curPos.y = GameObject.getGlobalBounds().top;
+		sf::Vector2i position = sf::Mouse::getPosition(win);
+
+		const float PI = 3.14159;
+
+		float dx = position.x - curPos.x;
+		float dy = position.y - curPos.y;
+
+		float rotation = (atan2(dy/2, dx / 2)) * 180 / PI;
+		GameObject.setOrigin(400, 400);
+		GameObject.setRotation(rotation);
 }
