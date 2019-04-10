@@ -22,6 +22,7 @@ public:
 	SpriteRenderer sprite;
 	PlayerInput keyboard;
 	Collision Collision;
+	int isHit = 1;
 
 protected:	
 	SceneGraph* parent;

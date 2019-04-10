@@ -20,6 +20,7 @@ void Collision::CollideWithPlayer(sf::Sprite& CollideObjectOne, sf::Sprite& Coll
 	float windowWidth = 1350;
 	float windowHeight = 775;
 
+
 	nexPos = playerBounds;
 
 	if (CollideObjectOne.getPosition().x < 25.f)
@@ -54,6 +55,7 @@ void Collision::CollideWithPlayer(sf::Sprite& CollideObjectOne, sf::Sprite& Coll
 		{
 			CollideObjectOne.move(sf::Vector2f(0, 0));
 			CollideObjectOne.setPosition(CollideObjectOne.getPosition().x, CollideObjectTwo.getPosition().y + wallBounds.top - wallBounds.height - 6);
+			
 		}
 
 		//Player Top
@@ -64,6 +66,7 @@ void Collision::CollideWithPlayer(sf::Sprite& CollideObjectOne, sf::Sprite& Coll
 		{
 			CollideObjectOne.move(sf::Vector2f(0, 0));
 			CollideObjectOne.setPosition(CollideObjectOne.getPosition().x, wallBounds.top + wallBounds.height + (playerBounds.height / 2));
+			
 		}
 
 		//Player Right

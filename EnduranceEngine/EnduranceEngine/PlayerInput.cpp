@@ -11,6 +11,8 @@ PlayerInput::PlayerInput()
 {
 }
 
+
+
 void PlayerInput::MovePlayer(sf::Event events, sf::Sprite& GameObject, float speed, sf::RenderWindow &win) {
 
 
@@ -31,6 +33,7 @@ void PlayerInput::MovePlayer(sf::Event events, sf::Sprite& GameObject, float spe
 		else if (events.key.code == Keyboard::Up) {
 
 			GameObject.move(sf::Vector2f(0, -speed));
+
 		}
 
 
