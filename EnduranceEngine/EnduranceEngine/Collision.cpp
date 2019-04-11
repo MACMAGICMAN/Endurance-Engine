@@ -12,7 +12,7 @@ Collision::Collision()
 }
 
 
-void Collision::CollideWithPlayer(sf::Sprite& CollideObjectOne, sf::Sprite& CollideObjectTwo) {
+void Collision::CollideWithPlayer(sf::Sprite& CollideObjectOne, sf::Sprite& CollideObjectTwo,bool damagable) {
 
 	FloatRect playerBounds = CollideObjectOne.getGlobalBounds();
 	FloatRect wallBounds = CollideObjectTwo.getGlobalBounds();
@@ -53,6 +53,12 @@ void Collision::CollideWithPlayer(sf::Sprite& CollideObjectOne, sf::Sprite& Coll
 			&& playerBounds.left < wallBounds.left + wallBounds.width
 			&& playerBounds.left + playerBounds.width > wallBounds.left)
 		{
+			if (damagable == true)
+			{
+				
+				ishit = ishit - 1;
+			}
+			
 			CollideObjectOne.move(sf::Vector2f(0, 0));
 			CollideObjectOne.setPosition(CollideObjectOne.getPosition().x, CollideObjectTwo.getPosition().y + wallBounds.top - wallBounds.height - 6);
 			
@@ -64,6 +70,10 @@ void Collision::CollideWithPlayer(sf::Sprite& CollideObjectOne, sf::Sprite& Coll
 			&& playerBounds.left < wallBounds.left + wallBounds.width
 			&& playerBounds.left + playerBounds.width >wallBounds.left)
 		{
+			if (damagable == true)
+			{
+				ishit = ishit - 1;
+			}
 			CollideObjectOne.move(sf::Vector2f(0, 0));
 			CollideObjectOne.setPosition(CollideObjectOne.getPosition().x, wallBounds.top + wallBounds.height + (playerBounds.height / 2));
 			
@@ -75,6 +85,10 @@ void Collision::CollideWithPlayer(sf::Sprite& CollideObjectOne, sf::Sprite& Coll
 			&& playerBounds.top < wallBounds.top + wallBounds.height
 			&& playerBounds.top + playerBounds.height > wallBounds.top)
 		{
+			if (damagable == true)
+			{
+				ishit = ishit - 1;
+			}
 			CollideObjectOne.move(sf::Vector2f(0, 0));
 			CollideObjectOne.setPosition(CollideObjectTwo.getPosition().x + wallBounds.left - wallBounds.width +50, CollideObjectOne.getPosition().y);
 		}
@@ -85,6 +99,10 @@ void Collision::CollideWithPlayer(sf::Sprite& CollideObjectOne, sf::Sprite& Coll
 			&& playerBounds.top < wallBounds.top + wallBounds.height
 			&& playerBounds.top + playerBounds.height > wallBounds.top)
 		{
+			if (damagable == true)
+			{
+				ishit = ishit - 1;
+			}
 			CollideObjectOne.move(sf::Vector2f(0, 0)); 
 				CollideObjectOne.setPosition(CollideObjectTwo.getPosition().x + wallBounds.left / 8 + wallBounds.width, CollideObjectOne.getPosition().y);
 		}

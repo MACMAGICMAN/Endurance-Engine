@@ -7,5 +7,7 @@ class SplashScreen {
 public:
 	SplashScreen();
 	~SplashScreen();
+	void bulletSpawn(sf::Sprite &p, sf::Sprite &b, RenderWindow &w);
 	void Update(Time dt);
+	
 };

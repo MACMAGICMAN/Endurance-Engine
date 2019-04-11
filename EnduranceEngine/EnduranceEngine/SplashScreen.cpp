@@ -9,6 +9,8 @@
 
 
 PlayerInput* playerInput = new PlayerInput();
+int bulletcount = 0;
+//SceneGraph bullets[];
 
 SplashScreen::SplashScreen()
 {
@@ -18,6 +20,37 @@ SplashScreen::~SplashScreen()
 {
 
 }
+
+void SplashScreen::bulletSpawn(sf::Sprite& p, sf::Sprite& b, RenderWindow& w)
+{
+	b.setScale(.05, .01);
+	sf::Vector2f curPos;
+	curPos.x = p.getGlobalBounds().left;
+	curPos.y = p.getGlobalBounds().top;
+	sf::Vector2i position = sf::Mouse::getPosition(w);
+
+	const float PI = 3.14159;
+
+	float dx = position.x - curPos.x;
+	float dy = position.y - curPos.y;
+
+	float rotation = (atan2(dy / 2, dx / 2)) * 180 / PI;
+	b.setRotation(rotation);
+	b.setPosition(sf::Vector2f(curPos.x + p.getGlobalBounds().width/2, curPos.y + p.getGlobalBounds().height / 2));
+
+	
+	
+	
+
+}
+
+void bulletUpdate(sf::Sprite& b)
+{
+	const float PI = 3.14159;
+	b.move(sf::Vector2f(-sin((b.getRotation() - 90) / 180 * PI), cos((b.getRotation() - 90) / 180 * PI)));
+	return;
+}
+
 void SplashScreen::Update(Time dt)
 {
 
@@ -28,6 +61,7 @@ void SplashScreen::Update(Time dt)
 	SceneGraph optionsBackground;
 	SceneGraph player;
 	SceneGraph wall;
+	SceneGraph bullet;
 	
 
 	//Sprite Files
@@ -37,6 +71,7 @@ void SplashScreen::Update(Time dt)
 	optionsBackground.sprite.LoadSprite("../Documents/Import/back_Options.jpg");
 	wall.sprite.LoadSprite("../Documents/Import/back_Logo.jpg");
 	player.sprite.LoadSprite("../Documents/Import/player_Sprite.png");
+	bullet.sprite.LoadSprite("../Documents/Import/back_Logo.jpg");
 
 	//Audio Files
 	splash.audio.PlayAudio("../Documents/Import/startup.wav");
@@ -46,6 +81,9 @@ void SplashScreen::Update(Time dt)
 
 	wall.sprite.image.setPosition(sf::Vector2f(500, 500));
 	wall.sprite.image.setScale(0, 0);
+
+	bullet.sprite.image.setScale(0, 0);
+	bullet.sprite.image.setPosition(250, 250);
 
 	player.sprite.image.setPosition(sf::Vector2f(300, 200));
 	player.sprite.image.setScale(0, 0);
@@ -65,6 +103,7 @@ void SplashScreen::Update(Time dt)
 	text.setFillColor(Color::Red);
 	text.setCharacterSize(32);
 
+
 	while (window.isOpen()) {
 		Event event;
 		while (window.pollEvent(event)) {
@@ -78,6 +117,9 @@ void SplashScreen::Update(Time dt)
 				switch(event.key.code){
 				case sf::Keyboard::Up:
 					menu.moveUp();
+					break;
+				case sf::Keyboard::RControl:
+					bulletSpawn(player.sprite.image, bullet.sprite.image, window);
 					break;
 				case sf::Keyboard::Down:
 					menu.moveDown();
@@ -119,10 +161,21 @@ void SplashScreen::Update(Time dt)
 
 		}
 		splash.keyboard.MovePlayer(event, player.sprite.image, 0.5, window);
-		splash.Collision.CollideWithPlayer(player.sprite.image, wall.sprite.image);
+		splash.Collision.CollideWithPlayer(player.sprite.image, wall.sprite.image, false);
+		/*player.Collision.CollideWithPlayer(player.sprite.image, asteroid.sprite.image, true);
+		astroid.Collision.CollideWithPlayer(astroid.sprite.image, player.sprite.image, true);
+		if (astroid.Collision.ishit <= 0)
+		{
+			astroid.sprite.image.setScale(0, 0);
+		}
+		if (player.Collision.ishit <= 0)
+		{
+			player.sprite.image.setScale(0, 0);
+			menu.show(window);
+		}*/
 		window.clear();
 
-	
+		bulletUpdate(bullet.sprite.image);
 
 		window.draw(background.sprite.image);
 		window.draw(wall.sprite.image);
@@ -131,6 +184,11 @@ void SplashScreen::Update(Time dt)
 		window.draw(optionsBackground.sprite.image);
 		menu.draw(window);
 		window.draw(splash.sprite.image);
+		/*for (int i = 0; i < bulletcount; i++)
+		{
+			window.draw(bullets[i].sprite.image);
+		}*/
+		window.draw(bullet.sprite.image);
 		
 		
 		//window.setFramerateLimit(50);

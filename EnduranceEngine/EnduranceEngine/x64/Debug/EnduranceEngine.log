@@ -1,9 +1,12 @@
 ﻿  SplashScreen.cpp
-d:\documents\gameprogramming\endurance-engine\enduranceengine\enduranceengine\splashscreen.cpp(45): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+c:\users\graphic\documents\github\endurance-engine\enduranceengine\enduranceengine\splashscreen.cpp(26): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\graphic\documents\github\endurance-engine\enduranceengine\enduranceengine\splashscreen.cpp(32): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\graphic\documents\github\endurance-engine\enduranceengine\enduranceengine\splashscreen.cpp(49): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\graphic\documents\github\endurance-engine\enduranceengine\enduranceengine\splashscreen.cpp(80): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
           with
           [
               T=unsigned int
           ]
-d:\documents\gameprogramming\endurance-engine\enduranceengine\enduranceengine\splashscreen.cpp(96): warning C4305: 'argument': truncation from 'double' to 'float'
-d:\documents\gameprogramming\endurance-engine\enduranceengine\enduranceengine\splashscreen.cpp(97): warning C4305: 'argument': truncation from 'double' to 'float'
-  EnduranceEngine.vcxproj -> D:\Documents\GameProgramming\Endurance-Engine\EnduranceEngine\x64\Debug\EnduranceEngine.exe
+c:\users\graphic\documents\github\endurance-engine\enduranceengine\enduranceengine\splashscreen.cpp(138): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\graphic\documents\github\endurance-engine\enduranceengine\enduranceengine\splashscreen.cpp(139): warning C4305: 'argument': truncation from 'double' to 'float'
+  EnduranceEngine.vcxproj -> C:\Users\graphic\Documents\GitHub\Endurance-Engine\EnduranceEngine\x64\Debug\EnduranceEngine.exe
