@@ -1,16 +1,22 @@
+#include "stdafx.h"
 #include "PlayerInput.h"
 #include <windows.h>
+#include "SpriteRenderer.h"
+#include "SceneGraph.h"
+
+#include <sstream>
+#include <string>
 
 PlayerInput::PlayerInput()
 {
 }
 
 
+
 void PlayerInput::MovePlayer(sf::Event events, sf::Sprite& GameObject, float speed, sf::RenderWindow &win) {
 
 
-	//keyboard input
-	if (events.type == Event::KeyPressed)
+	if (events.type == sf::Event::EventType::KeyPressed)
 	{
 
 		//Left, Right, Up, Down
@@ -19,14 +25,20 @@ void PlayerInput::MovePlayer(sf::Event events, sf::Sprite& GameObject, float spe
 		}
 
 		else if (events.key.code == Keyboard::Right) {
+
 			GameObject.move(sf::Vector2f(speed, 0));
 		}
 
+
 		else if (events.key.code == Keyboard::Up) {
+
 			GameObject.move(sf::Vector2f(0, -speed));
+
 		}
 
+
 		else if (events.key.code == Keyboard::Down) {
+
 			GameObject.move(sf::Vector2f(0, speed));
 		}
 
@@ -59,6 +71,7 @@ void PlayerInput::MovePlayer(sf::Event events, sf::Sprite& GameObject, float spe
 		
 	}
 
+
 		//get current Position
 		sf::Vector2f curPos; 
 		//get Pivot Point
@@ -74,4 +87,7 @@ void PlayerInput::MovePlayer(sf::Event events, sf::Sprite& GameObject, float spe
 		float rotation = (atan2(dy/2, dx / 2)) * 180 / PI;
 		GameObject.setOrigin(400, 400);
 		GameObject.setRotation(rotation);
+		
+
+
 }

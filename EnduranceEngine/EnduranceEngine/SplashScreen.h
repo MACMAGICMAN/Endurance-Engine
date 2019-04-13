@@ -1,7 +1,5 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "SceneGraph.h"
-#include <vector>
 
 using namespace sf;
 
@@ -9,7 +7,7 @@ class SplashScreen {
 public:
 	SplashScreen();
 	~SplashScreen();
-	void Update();
-
-	std::vector<SceneGraph> gameObjects;
+	void bulletSpawn(sf::Sprite &p, sf::Sprite &b, RenderWindow &w);
+	void Update(Time dt);
+	
 };
