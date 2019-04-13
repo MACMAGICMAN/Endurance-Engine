@@ -1,12 +1,28 @@
 ﻿  SplashScreen.cpp
-c:\users\graphic\documents\github\endurance-engine\enduranceengine\enduranceengine\splashscreen.cpp(26): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\graphic\documents\github\endurance-engine\enduranceengine\enduranceengine\splashscreen.cpp(32): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\users\graphic\documents\github\endurance-engine\enduranceengine\enduranceengine\splashscreen.cpp(49): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\users\graphic\documents\github\endurance-engine\enduranceengine\enduranceengine\splashscreen.cpp(80): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+c:\users\mac\documents\github\endurance-engine\enduranceengine\enduranceengine\splashscreen.cpp(29): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\mac\documents\github\endurance-engine\enduranceengine\enduranceengine\splashscreen.cpp(35): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\mac\documents\github\endurance-engine\enduranceengine\enduranceengine\splashscreen.cpp(58): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
           with
           [
               T=unsigned int
           ]
-c:\users\graphic\documents\github\endurance-engine\enduranceengine\enduranceengine\splashscreen.cpp(138): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\graphic\documents\github\endurance-engine\enduranceengine\enduranceengine\splashscreen.cpp(139): warning C4305: 'argument': truncation from 'double' to 'float'
-  EnduranceEngine.vcxproj -> C:\Users\graphic\Documents\GitHub\Endurance-Engine\EnduranceEngine\x64\Debug\EnduranceEngine.exe
+c:\users\mac\documents\github\endurance-engine\enduranceengine\enduranceengine\splashscreen.cpp(66): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+c:\users\mac\documents\github\endurance-engine\enduranceengine\enduranceengine\splashscreen.cpp(77): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\mac\documents\github\endurance-engine\enduranceengine\enduranceengine\splashscreen.cpp(80): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\mac\documents\github\endurance-engine\enduranceengine\enduranceengine\splashscreen.cpp(112): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+c:\users\mac\documents\github\endurance-engine\enduranceengine\enduranceengine\splashscreen.cpp(120): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\mac\documents\github\endurance-engine\enduranceengine\enduranceengine\splashscreen.cpp(176): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\mac\documents\github\endurance-engine\enduranceengine\enduranceengine\splashscreen.cpp(177): warning C4305: 'argument': truncation from 'double' to 'float'
+  EnduranceEngine.vcxproj -> C:\Users\Mac\Documents\GitHub\Endurance-Engine\EnduranceEngine\x64\Debug\EnduranceEngine.exe

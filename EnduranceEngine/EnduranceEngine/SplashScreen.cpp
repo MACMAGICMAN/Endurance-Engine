@@ -10,6 +10,9 @@
 
 PlayerInput* playerInput = new PlayerInput();
 int bulletcount = 0;
+bool isplay = false;
+int ishittemp = 0;
+bool doonce = true;
 //SceneGraph bullets[];
 
 SplashScreen::SplashScreen()
@@ -44,10 +47,37 @@ void SplashScreen::bulletSpawn(sf::Sprite& p, sf::Sprite& b, RenderWindow& w)
 
 }
 
-void bulletUpdate(sf::Sprite& b)
+void checkedge(sf::Sprite& a, RenderWindow& w)
 {
+	if (a.getPosition().x >= w.getSize().x)
+	{
+		a.setPosition(10, a.getPosition().y);
+	}
+	else if (a.getPosition().x <= 0)
+	{
+		a.setPosition(w.getSize().x - 10, a.getPosition().y);
+	}
+	else if (a.getPosition().y >= w.getSize().y)
+	{
+		a.setPosition(a.getPosition().x, 10);
+	}
+	else if (a.getPosition().y <= 0)
+	{
+		a.setPosition(a.getPosition().x, w.getSize().y - 10);
+	}
+}
+
+void objectUpdate(sf::Sprite& b, sf::Sprite& a)
+{
+	if (doonce == true)
+	{
+		a.setRotation(107);
+		doonce = false;
+	}
 	const float PI = 3.14159;
-	b.move(sf::Vector2f(-sin((b.getRotation() - 90) / 180 * PI), cos((b.getRotation() - 90) / 180 * PI)));
+	b.move(sf::Vector2f(-sin((b.getRotation() - 90) / 180 * PI) * 2, cos((b.getRotation() - 90) / 180 * PI) * 2));
+	//a.setRotation(a.getRotation() + .01);
+	a.move(sf::Vector2f(-sin((a.getRotation()) / 180 * PI) * 0.01, cos((a.getRotation()) / 180 * PI) * 0.01));
 	return;
 }
 
@@ -62,6 +92,7 @@ void SplashScreen::Update(Time dt)
 	SceneGraph player;
 	SceneGraph wall;
 	SceneGraph bullet;
+	SceneGraph asteroid;
 	
 
 	//Sprite Files
@@ -72,6 +103,7 @@ void SplashScreen::Update(Time dt)
 	wall.sprite.LoadSprite("../Documents/Import/back_Logo.jpg");
 	player.sprite.LoadSprite("../Documents/Import/player_Sprite.png");
 	bullet.sprite.LoadSprite("../Documents/Import/back_Logo.jpg");
+	asteroid.sprite.LoadSprite("../Documents/Import/back_Logo.jpg");
 
 	//Audio Files
 	splash.audio.PlayAudio("../Documents/Import/startup.wav");
@@ -85,8 +117,13 @@ void SplashScreen::Update(Time dt)
 	bullet.sprite.image.setScale(0, 0);
 	bullet.sprite.image.setPosition(250, 250);
 
+	asteroid.sprite.image.setScale(.1, .1);
+	asteroid.sprite.image.setPosition(750, 250);
+	//asteroid.sprite.image.setRotation(180);
+
 	player.sprite.image.setPosition(sf::Vector2f(300, 200));
 	player.sprite.image.setScale(0, 0);
+	player.Collision.ishit = 3;
 	background.sprite.image.setScale(0, 0);
 	optionsBackground.sprite.image.setScale(0, 0);
 	menuBackground.sprite.image.setScale(1,1);
@@ -127,6 +164,7 @@ void SplashScreen::Update(Time dt)
 				case sf::Keyboard::P:
 					menu.show(window);
 					menuBackground.sprite.image.setScale(1, 1);
+					isplay = false;
 					break;
 				case sf::Keyboard::Return:
 					switch (menu.GetPressedItem())
@@ -138,6 +176,7 @@ void SplashScreen::Update(Time dt)
 						player.sprite.image.setScale(0.1, 0.1);
 						wall.sprite.image.setScale(0.3, 0.3);
 						menu.clear(window);
+						isplay = true;
 						break;
 					case 1:
 						optionsBackground.sprite.image.setScale(1, 1);
@@ -160,35 +199,59 @@ void SplashScreen::Update(Time dt)
 			}
 
 		}
-		splash.keyboard.MovePlayer(event, player.sprite.image, 0.5, window);
-		splash.Collision.CollideWithPlayer(player.sprite.image, wall.sprite.image, false);
-		/*player.Collision.CollideWithPlayer(player.sprite.image, asteroid.sprite.image, true);
-		astroid.Collision.CollideWithPlayer(astroid.sprite.image, player.sprite.image, true);
-		if (astroid.Collision.ishit <= 0)
+		if (isplay == true)
 		{
-			astroid.sprite.image.setScale(0, 0);
+			
+			splash.keyboard.MovePlayer(event, player.sprite.image, 0.5, window);
+			splash.Collision.CollideWithPlayer(player.sprite.image, wall.sprite.image, false, false);
+			//asteroid.Collision.CollideWithPlayer(asteroid.sprite.image, wall.sprite.image, false, true);
+
+			//asteroid hit by bullet
+			asteroid.Collision.CollideWithPlayer(asteroid.sprite.image, bullet.sprite.image, true, false);
+			if (asteroid.Collision.ishit <= 0)
+			{
+				asteroid.sprite.image.setScale(0, 0);
+			}
+
+			ishittemp = player.Collision.ishit;
+			player.Collision.CollideWithPlayer(player.sprite.image, asteroid.sprite.image, true, false);
+			//asteroid hit by player
+			if (player.Collision.ishit < ishittemp)
+			{
+				asteroid.sprite.image.setScale(0, 0);
+			}
+			//player death
+			if (player.Collision.ishit <= 0)
+			{
+				player.sprite.image.setScale(0, 0);
+				menu.show(window);
+				menuBackground.sprite.image.setScale(1, 1);
+				isplay = false;
+				player.Collision.ishit = 3;
+			}
 		}
-		if (player.Collision.ishit <= 0)
-		{
-			player.sprite.image.setScale(0, 0);
-			menu.show(window);
-		}*/
+		
 		window.clear();
 
-		bulletUpdate(bullet.sprite.image);
+		checkedge(asteroid.sprite.image, window);
+		checkedge(player.sprite.image, window);
+		objectUpdate(bullet.sprite.image, asteroid.sprite.image);
 
 		window.draw(background.sprite.image);
-		window.draw(wall.sprite.image);
+		//window.draw(wall.sprite.image);
 		window.draw(player.sprite.image);
+		window.draw(bullet.sprite.image);
+		window.draw(asteroid.sprite.image);
 		window.draw(menuBackground.sprite.image);
 		window.draw(optionsBackground.sprite.image);
+		
 		menu.draw(window);
 		window.draw(splash.sprite.image);
 		/*for (int i = 0; i < bulletcount; i++)
 		{
 			window.draw(bullets[i].sprite.image);
 		}*/
-		window.draw(bullet.sprite.image);
+		
 		
 		
 		//window.setFramerateLimit(50);
