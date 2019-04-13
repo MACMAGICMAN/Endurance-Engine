@@ -22,7 +22,7 @@ void Collision::CollideWithPlayer(sf::Sprite& CollideObjectOne, sf::Sprite& Coll
 
 
 	nexPos = playerBounds;
-
+	/*
 	if (CollideObjectOne.getPosition().x < 25.f)
 		CollideObjectOne.setPosition(25.f, CollideObjectOne.getPosition().y);
 
@@ -34,7 +34,7 @@ void Collision::CollideWithPlayer(sf::Sprite& CollideObjectOne, sf::Sprite& Coll
 
 	if (CollideObjectOne.getPosition().y + CollideObjectOne.getGlobalBounds().height > windowHeight)
 		CollideObjectOne.setPosition(CollideObjectOne.getPosition().x,windowHeight - CollideObjectOne.getGlobalBounds().height);
-
+*/
 	//if (CollideObjectOne.getGlobalBounds().intersects(CollideObjectTwo.getGlobalBounds())) {
 
 		//OutputDebugString("Colliding\n");
