@@ -39,11 +39,11 @@ void SplashScreen::bulletSpawn(sf::Sprite& p, sf::Sprite& b, RenderWindow& w)
 
 	float rotation = (atan2(dy / 2, dx / 2)) * 180 / PI;
 	b.setRotation(rotation);
-	b.setPosition(sf::Vector2f(curPos.x + p.getGlobalBounds().width/2, curPos.y + p.getGlobalBounds().height / 2));
+	b.setPosition(sf::Vector2f(curPos.x + p.getGlobalBounds().width / 2, curPos.y + p.getGlobalBounds().height / 2));
 
-	
-	
-	
+
+
+
 
 }
 
@@ -81,10 +81,12 @@ void objectUpdate(sf::Sprite& b, sf::Sprite& a)
 	return;
 }
 
-void SplashScreen::Update(Time dt)
+void SplashScreen::Update()
 {
 
 	Clock c;
+	c.restart();
+
 	SceneGraph splash;
 	SceneGraph background;
 	SceneGraph menuBackground;
@@ -93,7 +95,7 @@ void SplashScreen::Update(Time dt)
 	SceneGraph wall;
 	SceneGraph bullet;
 	SceneGraph asteroid;
-	
+
 
 	//Sprite Files
 	splash.sprite.LoadSprite("../Documents/Import/back_Logo.jpg");
@@ -126,7 +128,7 @@ void SplashScreen::Update(Time dt)
 	player.Collision.ishit = 3;
 	background.sprite.image.setScale(0, 0);
 	optionsBackground.sprite.image.setScale(0, 0);
-	menuBackground.sprite.image.setScale(1,1);
+	menuBackground.sprite.image.setScale(1, 1);
 
 	//background.sprite.image.setPosition(sf::Vector2f(300, 200));
 	//background.sprite.image.setScale(1, 1);
@@ -134,7 +136,7 @@ void SplashScreen::Update(Time dt)
 	Font bluehighway;
 	bluehighway.loadFromFile("../Documents/Import/blue highway.ttf");
 
-	
+
 	Text text;
 	text.setFont(bluehighway);
 	text.setFillColor(Color::Red);
@@ -151,7 +153,7 @@ void SplashScreen::Update(Time dt)
 			switch (event.type)
 			{
 			case sf::Event::KeyReleased:
-				switch(event.key.code){
+				switch (event.key.code) {
 				case sf::Keyboard::Up:
 					menu.moveUp();
 					break;
@@ -189,19 +191,12 @@ void SplashScreen::Update(Time dt)
 						optionsBackground.sprite.image.setScale(0, 0);
 						break;
 					}
-
-					
 				}
-			
-
-
-
 			}
-
 		}
 		if (isplay == true)
 		{
-			
+
 			splash.keyboard.MovePlayer(event, player.sprite.image, 0.5, window);
 			splash.Collision.CollideWithPlayer(player.sprite.image, wall.sprite.image, false, false);
 			//asteroid.Collision.CollideWithPlayer(asteroid.sprite.image, wall.sprite.image, false, true);
@@ -230,7 +225,7 @@ void SplashScreen::Update(Time dt)
 				player.Collision.ishit = 3;
 			}
 		}
-		
+
 		window.clear();
 
 		checkedge(asteroid.sprite.image, window);
@@ -244,41 +239,27 @@ void SplashScreen::Update(Time dt)
 		window.draw(asteroid.sprite.image);
 		window.draw(menuBackground.sprite.image);
 		window.draw(optionsBackground.sprite.image);
-		
+
 		menu.draw(window);
 		window.draw(splash.sprite.image);
 		/*for (int i = 0; i < bulletcount; i++)
 		{
 			window.draw(bullets[i].sprite.image);
 		}*/
-		
-		
-		
+
 		//window.setFramerateLimit(50);
-		c.restart();
-		dt += c.getElapsedTime();
-		float seconds = dt.asSeconds();
+		float seconds = c.getElapsedTime().asSeconds();
 
 		std::ostringstream oss;
-		oss << seconds * 1000;
+		oss << seconds;
 		std::string s(oss.str());
-
 		text.setString(s);
 		window.draw(text);
-		//menu.draw(window);
-		if (seconds * 1000 >= 1) {
-			//window.close();
-			
-		splash.sprite.image.setScale(0, 0);
-		//RenderWindow window(VideoMode(background.sprite.texture.getSize().x, background.sprite.texture.getSize().y), "Splash screen test"/*, Style::None*/);
-		
+
+		if (seconds >= 3) {
+			splash.sprite.image.setScale(0, 0);
 		}
 
 		window.display();
-
 	}
-
-
-
-
 }

@@ -137,7 +137,7 @@ void EnduranceEngine::Initialize()
 
 int EnduranceEngine::Start()
 {
-	Time dt;	
-	splashScreen.Update(dt);
+	Time dt;
+	splashScreen.Update();
 	return 0;
 }

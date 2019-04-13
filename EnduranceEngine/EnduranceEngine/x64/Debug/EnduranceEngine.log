@@ -1,28 +1,30 @@
-﻿  SplashScreen.cpp
-c:\users\mac\documents\github\endurance-engine\enduranceengine\enduranceengine\splashscreen.cpp(29): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\mac\documents\github\endurance-engine\enduranceengine\enduranceengine\splashscreen.cpp(35): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\users\mac\documents\github\endurance-engine\enduranceengine\enduranceengine\splashscreen.cpp(58): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+﻿  EnduranceEngine.cpp
+  SplashScreen.cpp
+c:\users\nicch\documents\school\s6\game engine\endurance-engine\enduranceengine\enduranceengine\splashscreen.cpp(29): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\nicch\documents\school\s6\game engine\endurance-engine\enduranceengine\enduranceengine\splashscreen.cpp(35): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\nicch\documents\school\s6\game engine\endurance-engine\enduranceengine\enduranceengine\splashscreen.cpp(58): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
           with
           [
               T=unsigned int
           ]
-c:\users\mac\documents\github\endurance-engine\enduranceengine\enduranceengine\splashscreen.cpp(66): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+c:\users\nicch\documents\school\s6\game engine\endurance-engine\enduranceengine\enduranceengine\splashscreen.cpp(66): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
           with
           [
               T=unsigned int
           ]
-c:\users\mac\documents\github\endurance-engine\enduranceengine\enduranceengine\splashscreen.cpp(77): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\users\mac\documents\github\endurance-engine\enduranceengine\enduranceengine\splashscreen.cpp(80): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+c:\users\nicch\documents\school\s6\game engine\endurance-engine\enduranceengine\enduranceengine\splashscreen.cpp(77): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\nicch\documents\school\s6\game engine\endurance-engine\enduranceengine\enduranceengine\splashscreen.cpp(80): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-c:\users\mac\documents\github\endurance-engine\enduranceengine\enduranceengine\splashscreen.cpp(112): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+c:\users\nicch\documents\school\s6\game engine\endurance-engine\enduranceengine\enduranceengine\splashscreen.cpp(114): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
           with
           [
               T=unsigned int
           ]
-c:\users\mac\documents\github\endurance-engine\enduranceengine\enduranceengine\splashscreen.cpp(120): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\mac\documents\github\endurance-engine\enduranceengine\enduranceengine\splashscreen.cpp(176): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\mac\documents\github\endurance-engine\enduranceengine\enduranceengine\splashscreen.cpp(177): warning C4305: 'argument': truncation from 'double' to 'float'
-  EnduranceEngine.vcxproj -> C:\Users\Mac\Documents\GitHub\Endurance-Engine\EnduranceEngine\x64\Debug\EnduranceEngine.exe
+c:\users\nicch\documents\school\s6\game engine\endurance-engine\enduranceengine\enduranceengine\splashscreen.cpp(122): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\nicch\documents\school\s6\game engine\endurance-engine\enduranceengine\enduranceengine\splashscreen.cpp(178): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\nicch\documents\school\s6\game engine\endurance-engine\enduranceengine\enduranceengine\splashscreen.cpp(179): warning C4305: 'argument': truncation from 'double' to 'float'
+  Generating Code...
+  EnduranceEngine.vcxproj -> C:\Users\nicch\Documents\School\S6\Game Engine\Endurance-Engine\EnduranceEngine\x64\Debug\EnduranceEngine.exe
