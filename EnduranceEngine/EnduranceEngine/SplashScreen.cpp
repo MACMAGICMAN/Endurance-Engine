@@ -126,12 +126,12 @@ void SplashScreen::Update(Time dt)
 	//wall.sprite.LoadSprite("../Documents/Import/back_Logo.jpg");
 	player.sprite.LoadSprite("../Documents/Import/player_Sprite.png");
 	bullet.sprite.LoadSprite("../Documents/Import/back_Logo.jpg");
-	asteroid.sprite.LoadSprite("../Documents/Import/back_Logo.jpg");
-	asteroid2.sprite.LoadSprite("../Documents/Import/back_Logo.jpg");
-	asteroid3.sprite.LoadSprite("../Documents/Import/back_Logo.jpg");
-	asteroid4.sprite.LoadSprite("../Documents/Import/back_Logo.jpg");
-	asteroid5.sprite.LoadSprite("../Documents/Import/back_Logo.jpg");
-	asteroid6.sprite.LoadSprite("../Documents/Import/back_Logo.jpg");
+	asteroid.sprite.LoadSprite("../Documents/Import/asteroid.png");
+	asteroid2.sprite.LoadSprite("../Documents/Import/asteroid.png");
+	asteroid3.sprite.LoadSprite("../Documents/Import/asteroid.png");
+	asteroid4.sprite.LoadSprite("../Documents/Import/asteroid.png");
+	asteroid5.sprite.LoadSprite("../Documents/Import/asteroid.png");
+	asteroid6.sprite.LoadSprite("../Documents/Import/asteroid.png");
 	life1.sprite.LoadSprite("../Documents/Import/player_Sprite.jpg");
 	life2.sprite.LoadSprite("../Documents/Import/player_Sprite.jpg");
 	life3.sprite.LoadSprite("../Documents/Import/player_Sprite.jpg");
@@ -157,19 +157,11 @@ void SplashScreen::Update(Time dt)
 	life3.sprite.image.setScale(0, 0);
 	life3.sprite.image.setPosition(150, window.getSize().y - 50);
 
-	asteroid.sprite.image.setScale(.1, .1);
 	asteroid.sprite.image.setPosition(rand() % window.getSize().x, rand() % window.getSize().y);
-
-	asteroid2.sprite.image.setScale(.1, .1);
 	asteroid2.sprite.image.setPosition(rand() % window.getSize().x, rand() % window.getSize().y);
-
-	asteroid3.sprite.image.setScale(.1, .1);
 	asteroid3.sprite.image.setPosition(rand() % window.getSize().x, rand() % window.getSize().y);
-	asteroid4.sprite.image.setScale(.1, .1);
 	asteroid4.sprite.image.setPosition(rand() % window.getSize().x, rand() % window.getSize().y);
-	asteroid5.sprite.image.setScale(.1, .1);
 	asteroid5.sprite.image.setPosition(rand() % window.getSize().x, rand() % window.getSize().y);
-	asteroid6.sprite.image.setScale(.1, .1);
 	asteroid6.sprite.image.setPosition(rand() % window.getSize().x, rand() % window.getSize().y);
 	//asteroid.sprite.image.setRotation(180);
 
