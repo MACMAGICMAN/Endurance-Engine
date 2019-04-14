@@ -21,7 +21,7 @@ public:
 	AudioManager audio;
 	SpriteRenderer sprite;
 	PlayerInput keyboard;
-	Collision Collision;
+	Collision collision;
 	int isHit = 1;
 
 protected:	

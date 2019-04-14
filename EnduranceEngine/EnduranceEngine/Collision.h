@@ -4,8 +4,7 @@ class Collision
 {
 public:
 	Collision();
-	void CollideWithPlayer(sf::Sprite& CollideObjectOne, sf::Sprite& CollideObjectTwo, bool damagable, bool reverse);
-	int ishit = 1;
+	void CollideWithPlayer(sf::Sprite& CollideObjectOne, sf::Sprite& CollideObjectTwo, bool damagable);
+	int lives = 1;
 	int rot = 1;
 };
-

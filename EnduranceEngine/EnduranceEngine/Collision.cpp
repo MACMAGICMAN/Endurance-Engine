@@ -6,13 +6,11 @@
 #include <sstream>
 #include <string>
 
-
 Collision::Collision()
 {
 }
 
-
-void Collision::CollideWithPlayer(sf::Sprite& CollideObjectOne, sf::Sprite& CollideObjectTwo,bool damagable, bool reverse) {
+void Collision::CollideWithPlayer(sf::Sprite& CollideObjectOne, sf::Sprite& CollideObjectTwo, bool damagable) {
 
 	FloatRect playerBounds = CollideObjectOne.getGlobalBounds();
 	FloatRect wallBounds = CollideObjectTwo.getGlobalBounds();
@@ -34,41 +32,28 @@ void Collision::CollideWithPlayer(sf::Sprite& CollideObjectOne, sf::Sprite& Coll
 	if (CollideObjectOne.getPosition().y + CollideObjectOne.getGlobalBounds().height > windowHeight)
 		CollideObjectOne.setPosition(CollideObjectOne.getPosition().x,windowHeight - CollideObjectOne.getGlobalBounds().height);
 */
-	//if (CollideObjectOne.getGlobalBounds().intersects(CollideObjectTwo.getGlobalBounds())) {
+//if (CollideObjectOne.getGlobalBounds().intersects(CollideObjectTwo.getGlobalBounds())) {
 
-		//OutputDebugString("Colliding\n");
-		//CollideObjectOne.move(sf::Vector2f(0,-6));
+	//OutputDebugString("Colliding\n");
+	//CollideObjectOne.move(sf::Vector2f(0,-6));
 
-	//}
-	//else {
-	//	OutputDebugString("Not Colliding\n");
-	//}
+//}
+//else {
+//	OutputDebugString("Not Colliding\n");
+//}
 
 	if (wallBounds.intersects(nexPos))
-	{   
+	{
 		//Player Bottom
 		if (playerBounds.top < wallBounds.top
 			&& playerBounds.top + playerBounds.height < wallBounds.top + wallBounds.height
 			&& playerBounds.left < wallBounds.left + wallBounds.width
 			&& playerBounds.left + playerBounds.width > wallBounds.left)
 		{
-			if (damagable == true)
-			{
-				
-				ishit = ishit - 1;
-			}
+			if (damagable) { lives--; }
 
-			if (reverse == true)
-			{
-				rot = 1;
-				//CollideObjectOne.
-			}
-			
-				CollideObjectOne.move(sf::Vector2f(0, 0));
-				CollideObjectOne.setPosition(CollideObjectOne.getPosition().x, CollideObjectTwo.getPosition().y + wallBounds.top - wallBounds.height - 6);
-			
-			
-			
+			CollideObjectOne.move(sf::Vector2f(0, 0));
+			CollideObjectOne.setPosition(CollideObjectOne.getPosition().x, CollideObjectTwo.getPosition().y + wallBounds.top - wallBounds.height - 6);
 		}
 
 		//Player Top
@@ -77,19 +62,10 @@ void Collision::CollideWithPlayer(sf::Sprite& CollideObjectOne, sf::Sprite& Coll
 			&& playerBounds.left < wallBounds.left + wallBounds.width
 			&& playerBounds.left + playerBounds.width >wallBounds.left)
 		{
-			if (damagable == true)
-			{
-				ishit = ishit - 1;
-			}
-			if (reverse == true)
-			{
-				rot = 2;
-				//CollideObjectOne.
-			}
-			
-				CollideObjectOne.move(sf::Vector2f(0, 0));
-				CollideObjectOne.setPosition(CollideObjectOne.getPosition().x, CollideObjectTwo.getPosition().y + wallBounds.top - wallBounds.height - 6);
-			
+			if (damagable) { lives--; }
+
+			CollideObjectOne.move(sf::Vector2f(0, 0));
+			CollideObjectOne.setPosition(CollideObjectOne.getPosition().x, CollideObjectTwo.getPosition().y + wallBounds.top - wallBounds.height - 6);
 		}
 
 		//Player Right
@@ -98,19 +74,10 @@ void Collision::CollideWithPlayer(sf::Sprite& CollideObjectOne, sf::Sprite& Coll
 			&& playerBounds.top < wallBounds.top + wallBounds.height
 			&& playerBounds.top + playerBounds.height > wallBounds.top)
 		{
-			if (damagable == true)
-			{
-				ishit = ishit - 1;
-			}
-			if (reverse == true)
-			{
-				rot = 3;
-				//CollideObjectOne.
-			}
-			
-				CollideObjectOne.move(sf::Vector2f(0, 0));
-				CollideObjectOne.setPosition(CollideObjectOne.getPosition().x, CollideObjectTwo.getPosition().y + wallBounds.top - wallBounds.height - 6);
-			
+			if (damagable) { lives--; }
+
+			CollideObjectOne.move(sf::Vector2f(0, 0));
+			CollideObjectOne.setPosition(CollideObjectOne.getPosition().x, CollideObjectTwo.getPosition().y + wallBounds.top - wallBounds.height - 6);
 		}
 
 		//Player Left
@@ -119,22 +86,10 @@ void Collision::CollideWithPlayer(sf::Sprite& CollideObjectOne, sf::Sprite& Coll
 			&& playerBounds.top < wallBounds.top + wallBounds.height
 			&& playerBounds.top + playerBounds.height > wallBounds.top)
 		{
-			if (damagable == true)
-			{
-				ishit = ishit - 1;
-			}
-			if (reverse == true)
-			{
-				rot = 4;
-				//CollideObjectOne.
-			}
-			
-				CollideObjectOne.move(sf::Vector2f(0, 0));
-				CollideObjectOne.setPosition(CollideObjectOne.getPosition().x, CollideObjectTwo.getPosition().y + wallBounds.top - wallBounds.height - 6);
-			
+			if (damagable) { lives--; }
+
+			CollideObjectOne.move(sf::Vector2f(0, 0));
+			CollideObjectOne.setPosition(CollideObjectOne.getPosition().x, CollideObjectTwo.getPosition().y + wallBounds.top - wallBounds.height - 6);
 		}
-			
-			
-		
 	}
 }

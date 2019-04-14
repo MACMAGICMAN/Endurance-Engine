@@ -47,11 +47,10 @@ void Menu::draw(sf::RenderWindow &window)
 
 void Menu::clear(sf::RenderWindow & window)
 {
-		menu[0].setString("");
-		menu[1].setString("");
-		menu[2].setString("");
-		menu[3].setString("");
-
+	for (int i = 0; i < MAX_NUMBER_OF_ITEMS; i++)
+	{
+		menu[i].setString("");
+	}
 }
 
 void Menu::show(sf::RenderWindow & window)
@@ -65,8 +64,6 @@ void Menu::back(sf::RenderWindow & window)
 {
 	menu[3].setString("Back");
 }
-
-
 
 void Menu::moveUp()
 {
