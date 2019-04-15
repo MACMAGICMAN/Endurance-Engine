@@ -116,6 +116,7 @@ void SplashScreen::Update(Time dt)
 	SceneGraph life1;
 	SceneGraph life2;
 	SceneGraph life3;
+
 	
 	srand(time(NULL));
 	//Sprite Files
@@ -138,6 +139,8 @@ void SplashScreen::Update(Time dt)
 
 	//Audio Files
 	splash.audio.PlayAudio("../Documents/Import/startup.wav");
+	splash.audio.PlayAudio("../Documents/Import/music.wav");
+	
 
 	RenderWindow window(VideoMode(1280, 720), "Splash screen test"/*, Style::None*/);
 	Menu menu(window.getSize().x, window.getSize().y);
@@ -149,20 +152,20 @@ void SplashScreen::Update(Time dt)
 	bullet.sprite.image.setPosition(rand()%window.getSize().x, rand() % window.getSize().y);
 
 	life1.sprite.image.setScale(0, 0);
-	life1.sprite.image.setPosition(50, window.getSize().y - 50);
+	life1.sprite.image.setPosition(50, window.getSize().y + 50);
 
 	life2.sprite.image.setScale(0, 0);
-	life2.sprite.image.setPosition(100, window.getSize().y - 50);
+	life2.sprite.image.setPosition(100, window.getSize().y + 50);
 
 	life3.sprite.image.setScale(0, 0);
-	life3.sprite.image.setPosition(150, window.getSize().y - 50);
+	life3.sprite.image.setPosition(150, window.getSize().y + 50);
 
-	asteroid.sprite.image.setPosition(rand() % window.getSize().x, rand() % window.getSize().y);
-	asteroid2.sprite.image.setPosition(rand() % window.getSize().x, rand() % window.getSize().y);
-	asteroid3.sprite.image.setPosition(rand() % window.getSize().x, rand() % window.getSize().y);
-	asteroid4.sprite.image.setPosition(rand() % window.getSize().x, rand() % window.getSize().y);
-	asteroid5.sprite.image.setPosition(rand() % window.getSize().x, rand() % window.getSize().y);
-	asteroid6.sprite.image.setPosition(rand() % window.getSize().x, rand() % window.getSize().y);
+	asteroid.sprite.image.setPosition(rand() % (window.getSize().x - 250) + 250, rand() % window.getSize().y);
+	asteroid2.sprite.image.setPosition(rand() % (window.getSize().x - 250) + 250, rand() % window.getSize().y);
+	asteroid3.sprite.image.setPosition(rand() % (window.getSize().x - 250) + 250, rand() % window.getSize().y);
+	asteroid4.sprite.image.setPosition(rand() % (window.getSize().x - 250) + 250, rand() % window.getSize().y);
+	asteroid5.sprite.image.setPosition(rand() % (window.getSize().x - 250) + 250, rand() % window.getSize().y);
+	asteroid6.sprite.image.setPosition(rand() % (window.getSize().x - 250) + 250, rand() % window.getSize().y);
 	//asteroid.sprite.image.setRotation(180);
 
 	player.sprite.image.setPosition(sf::Vector2f(300, 200));
@@ -201,6 +204,7 @@ void SplashScreen::Update(Time dt)
 					break;
 				case sf::Keyboard::RControl:
 					bulletSpawn(player.sprite.image, bullet.sprite.image, window);
+					player.audio.PlayAudio("../Documents/Import/shoot.wav");
 					break;
 				case sf::Keyboard::Down:
 					menu.moveDown();
@@ -279,6 +283,8 @@ void SplashScreen::Update(Time dt)
 			if (asteroid.Collision.ishit <= 0)
 			{
 				asteroid.sprite.image.setScale(0, 0);
+				//asteroid.audio.PlayAudio("../Documents/Import/break.wav");
+				
 				count = count + 1;
 				asteroid.Collision.ishit = 1;
 			}
@@ -287,6 +293,8 @@ void SplashScreen::Update(Time dt)
 			if (asteroid2.Collision.ishit <= 0)
 			{
 				asteroid2.sprite.image.setScale(0, 0);
+				//asteroid2.audio.PlayAudio("../Documents/Import/break.wav");
+				
 				count = count + 1;
 				asteroid2.Collision.ishit = 1;
 			}
@@ -295,6 +303,8 @@ void SplashScreen::Update(Time dt)
 			if (asteroid3.Collision.ishit <= 0)
 			{
 				asteroid3.sprite.image.setScale(0, 0);
+				//asteroid3.audio.PlayAudio("../Documents/Import/break.wav");
+				
 				count = count + 1;
 				asteroid3.Collision.ishit = 1;
 			}
@@ -303,6 +313,8 @@ void SplashScreen::Update(Time dt)
 			if (asteroid4.Collision.ishit <= 0)
 			{
 				asteroid4.sprite.image.setScale(0, 0);
+				//asteroid4.audio.PlayAudio("../Documents/Import/break.wav");
+				
 				count = count + 1;
 				asteroid4.Collision.ishit = 1;
 			}
@@ -311,6 +323,8 @@ void SplashScreen::Update(Time dt)
 			if (asteroid5.Collision.ishit <= 0)
 			{
 				asteroid5.sprite.image.setScale(0, 0);
+				//asteroid5.audio.PlayAudio("../Documents/Import/break.wav");
+				
 				count = count + 1;
 				asteroid5.Collision.ishit = 1;
 			}
@@ -319,6 +333,7 @@ void SplashScreen::Update(Time dt)
 			if (asteroid6.Collision.ishit <= 0)
 			{
 				asteroid6.sprite.image.setScale(0, 0);
+				//asteroid6.audio.PlayAudio("../Documents/Import/break.wav");
 				count = count + 1;
 				asteroid6.Collision.ishit = 1;
 			}
@@ -381,17 +396,17 @@ void SplashScreen::Update(Time dt)
 				player.sprite.image.setPosition(250, 250);
 				player.Collision.ishit = 3;
 				count = 0;
-				asteroid.sprite.image.setScale(.1, .1);
+				asteroid.sprite.image.setScale(1, 1);
 				asteroid.Collision.ishit = 1;
-				asteroid2.sprite.image.setScale(.1, .1);
+				asteroid2.sprite.image.setScale(1, 1);
 				asteroid2.Collision.ishit = 1;
-				asteroid3.sprite.image.setScale(.1, .1);
+				asteroid3.sprite.image.setScale(1, 1);
 				asteroid3.Collision.ishit = 1;
-				asteroid4.sprite.image.setScale(.1, .1);
+				asteroid4.sprite.image.setScale(1, 1);
 				asteroid4.Collision.ishit = 1;
-				asteroid5.sprite.image.setScale(.1, .1);
+				asteroid5.sprite.image.setScale(1, 1);
 				asteroid5.Collision.ishit = 1;
-				asteroid6.sprite.image.setScale(.1, .1);
+				asteroid6.sprite.image.setScale(1, 1);
 				asteroid6.Collision.ishit = 1;
 			}
 			if (count >= 6)
@@ -403,17 +418,17 @@ void SplashScreen::Update(Time dt)
 				player.sprite.image.setPosition(250, 250);
 				player.Collision.ishit = 3;
 				count = 0;
-				asteroid.sprite.image.setScale(.1, .1);
+				asteroid.sprite.image.setScale(1, 1);
 				asteroid.Collision.ishit = 1;
-				asteroid2.sprite.image.setScale(.1, .1);
+				asteroid2.sprite.image.setScale(1, 1);
 				asteroid2.Collision.ishit = 1;
-				asteroid3.sprite.image.setScale(.1, .1);
+				asteroid3.sprite.image.setScale(1, 1);
 				asteroid3.Collision.ishit = 1;
-				asteroid4.sprite.image.setScale(.1, .1);
+				asteroid4.sprite.image.setScale(1, 1);
 				asteroid4.Collision.ishit = 1;
-				asteroid5.sprite.image.setScale(.1, .1);
+				asteroid5.sprite.image.setScale(1, 1);
 				asteroid5.Collision.ishit = 1;
-				asteroid6.sprite.image.setScale(.1, .1);
+				asteroid6.sprite.image.setScale(1, 1);
 				asteroid6.Collision.ishit = 1;
 			}
 		}
@@ -431,7 +446,16 @@ void SplashScreen::Update(Time dt)
 			objectUpdate(bullet.sprite.image, asteroid.sprite.image, asteroid2.sprite.image, asteroid3.sprite.image, asteroid4.sprite.image, asteroid5.sprite.image, asteroid6.sprite.image);
 		}
 		
+		c.restart();
+		dt += c.getElapsedTime();
+		float seconds = dt.asSeconds();
 
+		std::ostringstream oss;
+		oss << seconds * 1000;
+		std::string s(oss.str());
+
+		text.setString(s);
+		
 		window.draw(background.sprite.image);
 		//window.draw(wall.sprite.image);
 		window.draw(player.sprite.image);
@@ -447,7 +471,7 @@ void SplashScreen::Update(Time dt)
 		window.draw(life3.sprite.image);
 		window.draw(menuBackground.sprite.image);
 		window.draw(optionsBackground.sprite.image);
-		
+		window.draw(text);
 		menu.draw(window);
 		window.draw(splash.sprite.image);
 		/*for (int i = 0; i < bulletcount; i++)
@@ -458,21 +482,14 @@ void SplashScreen::Update(Time dt)
 		
 		
 		//window.setFramerateLimit(50);
-		c.restart();
-		dt += c.getElapsedTime();
-		float seconds = dt.asSeconds();
-
-		std::ostringstream oss;
-		oss << seconds * 1000;
-		std::string s(oss.str());
-
-		text.setString(s);
-		window.draw(text);
+		
 		//menu.draw(window);
 		if (seconds * 1000 >= 1) {
 			//window.close();
 			
 		splash.sprite.image.setScale(0, 0);
+		
+		//seconds = 0;
 		//RenderWindow window(VideoMode(background.sprite.texture.getSize().x, background.sprite.texture.getSize().y), "Splash screen test"/*, Style::None*/);
 		
 		}

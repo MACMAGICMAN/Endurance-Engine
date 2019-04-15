@@ -65,8 +65,8 @@ void Collision::CollideWithPlayer(sf::Sprite& CollideObjectOne, sf::Sprite& Coll
 				//CollideObjectOne.
 			}
 			
-				CollideObjectOne.move(sf::Vector2f(0, 0));
-				CollideObjectOne.setPosition(CollideObjectOne.getPosition().x, CollideObjectTwo.getPosition().y + wallBounds.top - wallBounds.height - 6);
+				//CollideObjectOne.move(sf::Vector2f(0, 0));
+				//CollideObjectOne.setPosition(CollideObjectOne.getPosition().x, CollideObjectTwo.getPosition().y + wallBounds.top - wallBounds.height - 6);
 			
 			
 			
@@ -88,8 +88,8 @@ void Collision::CollideWithPlayer(sf::Sprite& CollideObjectOne, sf::Sprite& Coll
 				//CollideObjectOne.
 			}
 			
-				CollideObjectOne.move(sf::Vector2f(0, 0));
-				CollideObjectOne.setPosition(CollideObjectOne.getPosition().x, CollideObjectTwo.getPosition().y + wallBounds.top - wallBounds.height - 6);
+				//CollideObjectOne.move(sf::Vector2f(0, 0));
+				//CollideObjectOne.setPosition(CollideObjectOne.getPosition().x, CollideObjectTwo.getPosition().y + wallBounds.top - wallBounds.height - 6);
 			
 		}
 
@@ -109,8 +109,8 @@ void Collision::CollideWithPlayer(sf::Sprite& CollideObjectOne, sf::Sprite& Coll
 				//CollideObjectOne.
 			}
 			
-				CollideObjectOne.move(sf::Vector2f(0, 0));
-				CollideObjectOne.setPosition(CollideObjectOne.getPosition().x, CollideObjectTwo.getPosition().y + wallBounds.top - wallBounds.height - 6);
+				//CollideObjectOne.move(sf::Vector2f(0, 0));
+				//CollideObjectOne.setPosition(CollideObjectOne.getPosition().x, CollideObjectTwo.getPosition().y + wallBounds.top - wallBounds.height - 6);
 			
 		}
 
@@ -130,8 +130,8 @@ void Collision::CollideWithPlayer(sf::Sprite& CollideObjectOne, sf::Sprite& Coll
 				//CollideObjectOne.
 			}
 			
-				CollideObjectOne.move(sf::Vector2f(0, 0));
-				CollideObjectOne.setPosition(CollideObjectOne.getPosition().x, CollideObjectTwo.getPosition().y + wallBounds.top - wallBounds.height - 6);
+				//CollideObjectOne.move(sf::Vector2f(0, 0));
+				//CollideObjectOne.setPosition(CollideObjectOne.getPosition().x, CollideObjectTwo.getPosition().y + wallBounds.top - wallBounds.height - 6);
 			
 		}
 			
